@@ -67,6 +67,18 @@ public class playerController : MonoBehaviour {
 			count = count + 10;
 			SetCountText ();
 		}
+		else if (other.gameObject.CompareTag ( "Black"))
+		{
+			other.gameObject.SetActive (false);
+			count = count - 10;
+			SetCountText ();
+		}
+		else if (other.gameObject.CompareTag ( "WaterTag"))
+		{
+			other.gameObject.SetActive (false);
+			count = count - 1;
+			SetCountText ();
+		}
 	}
 
 	void SetCountText ()
