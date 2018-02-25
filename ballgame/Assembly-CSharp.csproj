@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
      <Compile Include="Assets\Island\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Island\Scripts\FixedTiling.cs" />
      <Compile Include="Assets\Island\Scripts\MouseLook.cs" />
@@ -61,6 +62,9 @@
      <Compile Include="Assets\scripts\rotator.cs" />
      <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
+     <None Include="Assets\Lowpoly paper boats\doc\readme.txt" />
+     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
+     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

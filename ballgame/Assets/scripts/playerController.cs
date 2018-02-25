@@ -79,6 +79,12 @@ public class playerController : MonoBehaviour {
 			count = count - 1;
 			SetCountText ();
 		}
+		else if (other.gameObject.CompareTag ( "RainbowCube"))
+		{
+			other.gameObject.SetActive (false);
+			count = count + 30;
+			SetCountText ();
+		}
 	}
 
 	void SetCountText ()
