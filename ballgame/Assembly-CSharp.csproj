@@ -58,6 +58,7 @@
      <Compile Include="Assets\Island\Scripts\WaterScroller.cs" />
      <Compile Include="Assets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
      <Compile Include="Assets\scripts\CameraControl.cs" />
+     <Compile Include="Assets\scripts\CamRotation.cs" />
      <Compile Include="Assets\scripts\playerController.cs" />
      <Compile Include="Assets\scripts\rotator.cs" />
      <Compile Include="Assets\scripts\rotatorGifts.cs" />
