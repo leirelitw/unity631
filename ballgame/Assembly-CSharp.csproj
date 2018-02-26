@@ -60,13 +60,14 @@
      <Compile Include="Assets\scripts\CameraControl.cs" />
      <Compile Include="Assets\scripts\playerController.cs" />
      <Compile Include="Assets\scripts\rotator.cs" />
+     <Compile Include="Assets\scripts\rotatorGifts.cs" />
      <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\Lowpoly paper boats\doc\readme.txt" />
-     <None Include="Assets\Meshtint Free Santa Claus\Read me.txt" />
+     <None Include="Assets\SantaClaus\Read me.txt" />
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
-     <None Include="Assets\Meshtint Free Santa Claus\www.meshtint.com.txt" />
+     <None Include="Assets\SantaClaus\www.meshtint.com.txt" />
      <None Include="Assets\read me.txt" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
