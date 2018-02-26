@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
+     <Compile Include="Assets\control.cs" />
      <Compile Include="Assets\Island\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Island\Scripts\FixedTiling.cs" />
      <Compile Include="Assets\Island\Scripts\MouseLook.cs" />
