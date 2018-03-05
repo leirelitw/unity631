@@ -46,6 +46,7 @@ public class Login : MonoBehaviour {
 				Submit();
 			}
 		}
+
 		if (GUI.Button(new Rect(windowRect.width / 2 - 100, 35, 150, 30), "Test beach scene")) {
 			//SceneManager.UnloadSceneAsync ("Login");
 			SceneManager.LoadScene("beachScene");
