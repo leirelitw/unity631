@@ -80,7 +80,8 @@ public class Login : MonoBehaviour {
 		GUILayout.Space(100);
 
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "Log In")) {
-			Submit();
+			//Submit();
+			SceneManager.LoadSceneAsync("Lobby");
 		}
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "Sign up")) {
 			SceneManager.LoadSceneAsync("SignUp");

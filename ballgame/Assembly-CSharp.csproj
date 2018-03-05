@@ -73,6 +73,7 @@
      <Compile Include="Assets\scripts\CamRotation.cs" />
      <Compile Include="Assets\scripts\Constants.cs" />
      <Compile Include="Assets\scripts\ExtendedEventArgs.cs" />
+     <Compile Include="Assets\scripts\Lobby.cs" />
      <Compile Include="Assets\scripts\Login.cs" />
      <Compile Include="Assets\scripts\Main.cs" />
      <Compile Include="Assets\scripts\MessageQueue.cs" />
