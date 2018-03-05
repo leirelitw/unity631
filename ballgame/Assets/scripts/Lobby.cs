@@ -48,24 +48,24 @@ public class Lobby : MonoBehaviour {
 
 	void MakeWindow(int id) {
 
+		GUILayout.Space(200);
+
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 25, 100, 30), "Create a game")) {
+
+		}
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 75, 100, 30), "Join a game")) {
+
+		}
+
 		GUILayout.Space(100);
 
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "Create a game")) {
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 125, 100, 30), "See Leaderboard")) {
 
 		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "Join a game")) {
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 165, 100, 30), "See Credits")) {
 
 		}
-
-		GUILayout.Space(100);
-
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "See Leaderboard")) {
-
-		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "See Credits")) {
-
-		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "Log out")) {
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 205, 100, 30), "Log out")) {
 			SceneManager.LoadScene ("Login");
 		}
 
