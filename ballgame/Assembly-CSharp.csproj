@@ -80,6 +80,7 @@
      <Compile Include="Assets\scripts\playerController.cs" />
      <Compile Include="Assets\scripts\rotator.cs" />
      <Compile Include="Assets\scripts\rotatorGifts.cs" />
+     <Compile Include="Assets\scripts\RotatorPumpkins.cs" />
      <Compile Include="Assets\scripts\SignUp.cs" />
      <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
