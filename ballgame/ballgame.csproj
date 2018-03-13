@@ -193,6 +193,9 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -291,22 +294,41 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
     <Compile Include="Assets\control.cs" />
     <Compile Include="Assets\Island\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Island\Scripts\FixedTiling.cs" />
     <Compile Include="Assets\Island\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Island\Scripts\WaterScroller.cs" />
     <Compile Include="Assets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
+    <Compile Include="Assets\Network\ConnectionManager.cs" />
+    <Compile Include="Assets\Network\DataReader.cs" />
+    <Compile Include="Assets\Network\GamePacket.cs" />
+    <Compile Include="Assets\Network\GamePacketStream.cs" />
+    <Compile Include="Assets\Network\NetworkRequestTable.cs" />
+    <Compile Include="Assets\Network\NetworkResponseTable.cs" />
+    <Compile Include="Assets\Network\Request\NetworkRequest.cs" />
+    <Compile Include="Assets\Network\Request\RequestHeartbeat.cs" />
+    <Compile Include="Assets\Network\Request\RequestLogin.cs" />
+    <Compile Include="Assets\Network\Response\NetworkResponse.cs" />
+    <Compile Include="Assets\Network\Response\ResponseLogin.cs" />
+    <Compile Include="Assets\scripts\BallJump.cs" />
     <Compile Include="Assets\scripts\CameraControl.cs" />
     <Compile Include="Assets\scripts\CamRotation.cs" />
+    <Compile Include="Assets\scripts\Constants.cs" />
+    <Compile Include="Assets\scripts\ExtendedEventArgs.cs" />
+    <Compile Include="Assets\scripts\Lobby.cs" />
+    <Compile Include="Assets\scripts\Login.cs" />
+    <Compile Include="Assets\scripts\Main.cs" />
+    <Compile Include="Assets\scripts\MessageQueue.cs" />
     <Compile Include="Assets\scripts\playerController.cs" />
     <Compile Include="Assets\scripts\rotator.cs" />
     <Compile Include="Assets\scripts\rotatorGifts.cs" />
+    <Compile Include="Assets\scripts\RotatorPumpkins.cs" />
+    <Compile Include="Assets\scripts\SignUp.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
-    <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
+    <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
+    <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
     <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
     <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
     <None Include="Assets\Lowpoly paper boats\doc\readme.txt" />
@@ -342,6 +364,7 @@
     <None Include="Assets\Standard Assets\Vehicles\Car\Shaders\DiffuseReflectiveShader.shader" />
     <None Include="Assets\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpec.shader" />
     <None Include="Assets\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpecTransp.shader" />
+    <None Include="Assets\nnj3de_crucarp\README.txt" />
     <None Include="Assets\read me.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
