@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour {
 	
-	//private GameObject mainObject;
+	private GameObject mainObject;
 	// Window Properties
 	private float width = 280;
 	private float height = 100;
@@ -21,7 +21,6 @@ public class Login : MonoBehaviour {
 	
 	void Awake() {
 		//mainObject = GameObject.Find("MainObject");
-
 		//mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
 	}
 	
@@ -46,24 +45,6 @@ public class Login : MonoBehaviour {
 				Submit();
 			}
 		}
-
-		if (GUI.Button(new Rect(windowRect.width / 2 - 100, 35, 150, 30), "Test beach scene")) {
-			//SceneManager.UnloadSceneAsync ("Login");
-			SceneManager.LoadScene("beachScene");
-		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 100, 85, 150, 30), "Test forest scene")) {
-			//SceneManager.UnloadSceneAsync ("Login");
-			SceneManager.LoadScene("forestScene");
-		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 100, 135, 150, 30), "Test winter scene")) {
-			//SceneManager.UnloadSceneAsync ("Login");
-			SceneManager.LoadScene("WinterScene");
-		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 100, 185, 150, 30), "Test chocolate scene")) {
-			//SceneManager.UnloadSceneAsync ("Login");
-			SceneManager.LoadScene("Chocolate");
-		}
-
 	}
 	
 	void MakeWindow(int id) {
@@ -100,11 +81,10 @@ public class Login : MonoBehaviour {
 			Debug.Log("Password Required");
 			GUI.FocusControl("password_field");
 		} else {
-			//ConnectionManager cManager = mainObject.GetComponent<ConnectionManager>();
-			
-			//if (cManager) {
-			//	cManager.send(requestLogin(user_id, password));
-			//}
+			ConnectionManager cManager = mainObject.GetComponent<ConnectionManager>();
+			if (cManager) {
+				cManager.send(requestLogin(user_id, password));
+			}
 		}
 	}
 
@@ -120,6 +100,7 @@ public class Login : MonoBehaviour {
 		
 		if (args.status == 0) {
 			Constants.USER_ID = args.user_id;
+			SceneManager.LoadSceneAsync("Lobby");
 		} else {
 			Debug.Log("Login Failed");
 		}
