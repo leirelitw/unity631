@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BrokenVector\LowPolySurvivalEssentials\Example\Scripts\AnimatedFire.cs" />
      <Compile Include="Assets\control.cs" />
      <Compile Include="Assets\Island\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Island\Scripts\FixedTiling.cs" />
@@ -87,10 +86,8 @@
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\Lowpoly paper boats\doc\readme.txt" />
      <None Include="Assets\SantaClaus\Read me.txt" />
-     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
-     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
+     <None Include="Assets\nnj3de_crucarp\README.txt" />
      <None Include="Assets\SantaClaus\www.meshtint.com.txt" />
-     <None Include="Assets\Planets\shader\two_side_shader.shader" />
      <None Include="Assets\read me.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/leirelitwin/Documents/GitHub/unity631/ballgame/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
