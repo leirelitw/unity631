@@ -69,6 +69,7 @@
      <Compile Include="Assets\Network\Request\RequestLogin.cs" />
      <Compile Include="Assets\Network\Response\NetworkResponse.cs" />
      <Compile Include="Assets\Network\Response\ResponseLogin.cs" />
+     <Compile Include="Assets\scripts\BallJump.cs" />
      <Compile Include="Assets\scripts\CameraControl.cs" />
      <Compile Include="Assets\scripts\CamRotation.cs" />
      <Compile Include="Assets\scripts\Constants.cs" />
@@ -89,6 +90,7 @@
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
      <None Include="Assets\SantaClaus\www.meshtint.com.txt" />
+     <None Include="Assets\Planets\shader\two_side_shader.shader" />
      <None Include="Assets\read me.txt" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/leirelitwin/Documents/GitHub/unity631/ballgame/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
