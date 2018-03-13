@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/playerController.cs">
     <Files>
-      <File FileName="Assets/scripts/playerController.cs" Line="11" Column="29" />
-      <File FileName="Assets/scripts/BallJump.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/BallJump.cs" Line="7" Column="1" />
       <File FileName="Assets/scripts/rotatorGifts.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/Login.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/RotatorPumpkins.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/RotatorPumpkins.cs" Line="11" Column="1" />
+      <File FileName="Assets/scripts/playerController.cs" Line="10" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
