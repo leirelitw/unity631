@@ -69,6 +69,7 @@
      <Compile Include="Assets\Network\Response\NetworkResponse.cs" />
      <Compile Include="Assets\Network\Response\ResponseLogin.cs" />
      <Compile Include="Assets\scripts\BallJump.cs" />
+     <Compile Include="Assets\scripts\button_changeScene.cs" />
      <Compile Include="Assets\scripts\CameraControl.cs" />
      <Compile Include="Assets\scripts\CamRotation.cs" />
      <Compile Include="Assets\scripts\Constants.cs" />
