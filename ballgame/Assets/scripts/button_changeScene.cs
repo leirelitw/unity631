@@ -8,8 +8,8 @@ public class button_changeScene : MonoBehaviour {
     public int sceneNumber;
 	
     public void ChangeScene(){
-		SceneManager.LoadScene(sceneNumber);
-		//Application.LoadLevel(sceneNumber);
+		SceneManager.LoadScene(sceneNumber-1);
+		//Application.LoadLevel(sceneNumber-1);
     }
 
 	// Update is called once per frame

@@ -1,18 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Login.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/button_changeScene.cs">
     <Files>
-      <File FileName="Assets/Scripts/Login.cs" Line="90" Column="2" />
-      <File FileName="Assets/Scripts/playerController.cs" Line="11" Column="29" />
+      <File FileName="Assets/Scripts/button_changeScene.cs" Line="11" Column="37" />
+      <File FileName="Assets/Scripts/Login.cs" Line="24" Column="43" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/BallJump.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/rotatorGifts.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/RotatorPumpkins.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Main.cs" Line="22" Column="32" />
+      <File FileName="Assets/Scripts/Main.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Constants.cs" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Utility/SimpleActivatorMenu.cs" Line="10" Column="16" />
-      <File FileName="Assets/Standard Assets/Utility/ForcedReset.cs" Line="6" Column="27" />
-      <File FileName="Assets/Scripts/button_changeScene.cs" Line="11" Column="3" />
-      <File FileName="Assets/Scripts/Network/Response/ResponseLogin.cs" Line="44" Column="35" />
+      <File FileName="Assets/Standard Assets/Utility/SimpleActivatorMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Utility/ForcedReset.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Network/Response/ResponseLogin.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
