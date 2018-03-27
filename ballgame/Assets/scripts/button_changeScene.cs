@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class button_changeScene : MonoBehaviour {
 
-    public int sceneNumber;
+	public string sceneName;
 	
     public void ChangeScene(){
-		SceneManager.LoadScene(sceneNumber-1);
+		SceneManager.LoadScene(sceneName);
 		//Application.LoadLevel(sceneNumber-1);
     }
 
