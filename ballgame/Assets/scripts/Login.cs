@@ -20,8 +20,8 @@ public class Login : MonoBehaviour {
 	private bool isHidden;
 	
 	void Awake() {
-		//mainObject = GameObject.Find("MainObject");
-		//mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
+		mainObject = GameObject.Find("MainObject");
+		mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
 	}
 	
 	// Use this for initialization
