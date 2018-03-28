@@ -87,6 +87,7 @@
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
      <None Include="Assets\Lowpoly paper boats\doc\readme.txt" />
+     <None Include="Assets\Simple city plain\Read_me.txt" />
      <None Include="Assets\Fish\README.txt" />
      <None Include="Assets\read me.txt" />
  <Reference Include="Facebook.Unity.Settings">
