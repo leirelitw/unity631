@@ -23,6 +23,8 @@ public class playerController : MonoBehaviour {
 	{
 		//Cursor.visible = false; allows removing cursor, though not implemented yet
 		rb = GetComponent<Rigidbody>();
+		AS = GetComponents<AudioSource>();
+
 		count = 0;
 		SetCountText ();
 		winText.text = "";
