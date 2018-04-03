@@ -20,8 +20,8 @@ public class Login : MonoBehaviour {
 	private bool isHidden;
 	
 	void Awake() {
-		mainObject = GameObject.Find("MainObject");
-		mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
+		//mainObject = GameObject.Find("MainObject");
+		//mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
 	}
 	
 	// Use this for initialization
@@ -65,6 +65,7 @@ public class Login : MonoBehaviour {
 			SceneManager.LoadSceneAsync("Lobby");
 		}
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "Sign up")) {
+			SceneManager.UnloadSceneAsync("Login");
 			SceneManager.LoadSceneAsync("SignUp");
 		}
 		

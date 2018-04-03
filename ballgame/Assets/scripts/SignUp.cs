@@ -72,7 +72,7 @@ public class SignUp : MonoBehaviour {
 			Submit();
 		}
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 240, 100, 30), "Return to login")) {
-			SceneManager.LoadScene ("Login");
+			SceneManager.LoadSceneAsync("Login");
 		}
 		
 	}
