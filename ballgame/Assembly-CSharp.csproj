@@ -82,7 +82,6 @@
      <Compile Include="Assets\Scripts\rotatorGifts.cs" />
      <Compile Include="Assets\Scripts\RotatorPumpkins.cs" />
      <Compile Include="Assets\Scripts\SignUp.cs" />
-     <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
