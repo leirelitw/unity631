@@ -12,7 +12,6 @@ public class CountDownTimer3 : MonoBehaviour
 	public Text countdownText;
 
 	private bool firstCount = true; //3,2,1, Start!!
-	private bool canCount = true;
 
 	// Use this for initialization
 	void Start(){
