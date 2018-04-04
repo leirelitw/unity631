@@ -61,6 +61,9 @@
      <Compile Include="Assets\Scripts\CameraControl.cs" />
      <Compile Include="Assets\Scripts\CamRotation.cs" />
      <Compile Include="Assets\Scripts\Constants.cs" />
+     <Compile Include="Assets\Scripts\CountDownTimer.cs" />
+     <Compile Include="Assets\Scripts\CountDownTimer2.cs" />
+     <Compile Include="Assets\Scripts\CountDownTimer3.cs" />
      <Compile Include="Assets\Scripts\ExtendedEventArgs.cs" />
      <Compile Include="Assets\Scripts\Lobby.cs" />
      <Compile Include="Assets\Scripts\Login.cs" />
