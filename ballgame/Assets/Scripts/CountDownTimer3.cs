@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CountDownTimer3 : MonoBehaviour
 {
-	private int startTime = 5;
+	private int startTime = 6;
 	private int timeLeft = 100;
 	private int minutes = 1;
 	private int seconds = 1;
