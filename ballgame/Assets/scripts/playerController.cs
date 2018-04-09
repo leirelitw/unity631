@@ -6,10 +6,12 @@ public class playerController : MonoBehaviour {
 
 
 	//NOTE TO CHANGE FRICTION SHOULD MESS WITH ANGULAR DRAG IN RIGIDBODY. TEST IT OUT
+	/*
 	public Text countText;
 	public Text winText;
 	public Text velocityText;
 	public Text accelerationText;
+	*/
 	public string typeOfBall;
 	private float acceleration;
 	private float maxSpeed;
@@ -26,9 +28,11 @@ public class playerController : MonoBehaviour {
 		AS = GetComponents<AudioSource>();
 
 		count = 0;
-		SetCountText ();
+		//SetCountText ();
+		/*
 		winText.text = "";
 		velocityText.text = "Velocity: " + rb.velocity;
+		*/
 
 		switch (typeOfBall) {
 		case "Speedy":
@@ -65,7 +69,7 @@ public class playerController : MonoBehaviour {
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
 		rb.AddForce(movement * acceleration, ForceMode.Acceleration);//adds force so ball can move      
-		accelerationText.text = "Accelration: " + movement * acceleration; // remove in actual game, used for testing
+		//accelerationText.text = "Accelration: " + movement * acceleration; // remove in actual game, used for testing
 
 		rb.velocity = new Vector3
 			(
@@ -75,16 +79,16 @@ public class playerController : MonoBehaviour {
 
 				Mathf.Clamp(rb.velocity.z, -maxSpeed, maxSpeed)
 			);
-		velocityText.text = "Velocity: " + rb.velocity;
+		//velocityText.text = "Velocity: " + rb.velocity;
 	}
-
+	/*
 	void OnTriggerEnter(Collider other) 
 	{
 		if (other.gameObject.CompareTag ( "Pick Up"))
 		{
 			other.gameObject.SetActive (false);
 			count = count + 1; //red
-			SetCountText ();
+			//SetCountText ();
 		}
 		if (other.gameObject.CompareTag ( "Yellow"))
 		{
@@ -181,6 +185,7 @@ public class playerController : MonoBehaviour {
 		}
 		previousCount = count;
 	}
+	*/
 
 	void changeCursorVisibility()
 	{
