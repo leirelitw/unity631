@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/button_changeScene.cs">
     <Files>
       <File FileName="Assets/Scripts/playerController.cs" Line="31" Column="5" />
       <File FileName="Assets/Scripts/CountDownTimer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CountDownTimer3.cs" Line="12" Column="2" />
+      <File FileName="Assets/Scripts/CountDownTimer3.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/button_changeScene.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/TextComboScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BallJump.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
