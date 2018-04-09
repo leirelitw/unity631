@@ -1,4 +1,4 @@
-﻿/*
+﻿
 
 using System.Collections;
 using System.Collections.Generic;
@@ -78,7 +78,7 @@ public class BallJump : MonoBehaviour {
     }
 }
 
-*/
+/*
 
 using System.Collections;
 using System.Collections.Generic;
@@ -172,3 +172,4 @@ public class BallJump : MonoBehaviour {
 		}
 	}
 }
+*/
