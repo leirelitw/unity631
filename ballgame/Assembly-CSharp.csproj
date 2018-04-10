@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\CountDownTimer2.cs" />
      <Compile Include="Assets\Scripts\CountDownTimer3.cs" />
      <Compile Include="Assets\Scripts\ExtendedEventArgs.cs" />
+     <Compile Include="Assets\Scripts\JumpScript2.cs" />
      <Compile Include="Assets\Scripts\Lobby.cs" />
      <Compile Include="Assets\Scripts\Login.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
