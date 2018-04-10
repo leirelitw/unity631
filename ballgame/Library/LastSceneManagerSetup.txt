@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/GAME SCENES/LegoScene.unity
+- path: Assets/Scenes/GAME SCENES/RacingScene.unity
   isLoaded: 1
   isActive: 1

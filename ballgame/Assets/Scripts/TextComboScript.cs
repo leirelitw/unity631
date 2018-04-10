@@ -8,9 +8,10 @@ public class TextComboScript : MonoBehaviour {
 
     public Text countText;
     public Text winText;
-    public Text velocityText;
-    
     public Text pointCollect;
+
+	private AudioSource[] AS;
+	private int previousCount = 0;
 
     private Rigidbody rb;
     private int count;
@@ -23,7 +24,7 @@ public class TextComboScript : MonoBehaviour {
         SetCountText();
         winText.text = "";
         pointCollect.text = "";
-        velocityText.text = "Velocity: " + rb.velocity;
+		AS = GetComponents<AudioSource>();
 
     }
 	
@@ -110,23 +111,55 @@ public class TextComboScript : MonoBehaviour {
         }
     }
 
-    void SetCountText()
-    {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 176) //1*9 + 2*12 + 3*15 + 4*12 + 5*8 + 10 = 9 + 24 + 45 + 48 + 40 + 10
-        {
-            winText.text = "You Win!";
-        }
-    }
+	void SetCountText()
+	{
+		countText.text = "Count: " + count.ToString();
+		if (count - previousCount >= 10)
+		{
+			AudioSource Pick10 = AS[6];
+			Pick10.Play();
+		}else if (count - previousCount >= 5)
+		{
+			AudioSource Pick5 = AS[5];
+			Pick5.Play();
+		}
+		else if (count - previousCount >= 5)
+		{
+			AudioSource Pick4 = AS[4];
+			Pick4.Play();
+		}
+		else if (count - previousCount >= 3)
+		{
+			AudioSource Pick3 = AS[3];
+			Pick3.Play();
+		}
+		else if (count - previousCount >= 2)
+		{
+			AudioSource Pick2 = AS[2];
+			Pick2.Play();
+		}
+		else if (count - previousCount >= 1)
+		{
+			AudioSource Pick1 = AS[1];
+			Pick1.Play();
+		}
+		else if (count - previousCount <= -1)
+		{
+			AudioSource PickBad = AS[0];
+			PickBad.Play();
+		}
+		if (count >= 176) //1*9 + 2*12 + 3*15 + 4*12 + 5*8 + 10 = 9 + 24 + 45 + 48 + 40 + 10
+		{
+			AudioSource PickWin = AS[7];
+			PickWin.Play();
+			winText.text = "You Win!";
+		}
+		previousCount = count;
+	}
 
-    void DisplayPointCollected(string point)
-    {
-
+    void DisplayPointCollected(string point){
         pointCollect.text = point;
         StartCoroutine("WaitOneSec");
-
-        //StopCoroutine("WaitOneSec");
-
     }
 
 
