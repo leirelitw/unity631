@@ -1,0 +1,2 @@
+﻿// FIGURE OUT HOW TO TAKE INDIVIDUAL ANIMATIONS OUT OF THE PACKAGES AND PUT THEM IN THE CARTOONYBUSINESSZOMBIE folder.
+//using two animations form standard assets folder

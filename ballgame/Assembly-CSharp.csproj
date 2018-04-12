@@ -88,6 +88,8 @@
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SignUp.cs" />
      <Compile Include="Assets\Scripts\TextComboScript.cs" />
+     <Compile Include="Assets\Zombies\Read me.cs" />
+     <Compile Include="Assets\Zombies\ZombieScript.cs" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
