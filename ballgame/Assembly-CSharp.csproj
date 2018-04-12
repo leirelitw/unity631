@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\rotator.cs" />
      <Compile Include="Assets\Scripts\rotatorGifts.cs" />
      <Compile Include="Assets\Scripts\RotatorPumpkins.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SignUp.cs" />
      <Compile Include="Assets\Scripts\TextComboScript.cs" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />

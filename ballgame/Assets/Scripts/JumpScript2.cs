@@ -23,7 +23,7 @@ public class JumpScript2 : MonoBehaviour {
         {
             if (Input.GetButtonDown("Jump"))
             {
-                rb.velocity = new Vector3(0f, jumpHigh, 0f);
+				rb.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);
                 onGround = false;
             }
         }

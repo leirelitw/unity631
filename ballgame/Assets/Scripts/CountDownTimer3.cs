@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountDownTimer3 : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class CountDownTimer3 : MonoBehaviour
 		else if (timeLeft <= 0){
 			countdownText.text = "Times Up!";
 			StopCoroutine("LoseTime");
-			//Gameover()
+			GameOver();
 		}
 	}
 
@@ -55,12 +56,8 @@ public class CountDownTimer3 : MonoBehaviour
 		}
 	}
 
-	void GameOver()
-	{
-		//Change Scene
-
+	void GameOver(){
+		SceneManager.LoadScene("Ranking");
 	}
-
-
-
+		
 }
