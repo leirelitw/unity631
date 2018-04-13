@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/GAME SCENES/HalloweenScene.unity
+- path: Assets/Scenes/GUI DESIGN/LobbyWaitingGame.unity
   isLoaded: 1
   isActive: 1
