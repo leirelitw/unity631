@@ -52,19 +52,20 @@ public class Login : MonoBehaviour {
 		GUI.SetNextControlName("username_field");
 		user_id = GUI.TextField(new Rect(30, 45, windowRect.width - 60, 30), user_id, 25);
 
-		GUILayout.Space(50);
+		GUILayout.Space(32);
 		
 		GUILayout.Label("Password");
 		GUI.SetNextControlName("password_field");
 		password = GUI.PasswordField(new Rect(30, 100, windowRect.width - 60, 30), password, "*"[0], 25);
 		
-		GUILayout.Space(100);
+		GUILayout.Space(130);
 
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "Log In")) {
 			//Submit();
 			SceneManager.LoadSceneAsync("Lobby");
 		}
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "Sign up")) {
+			SceneManager.UnloadSceneAsync("Login");
 			SceneManager.LoadSceneAsync("SignUp");
 		}
 		

@@ -61,7 +61,11 @@
      <Compile Include="Assets\Scripts\CameraControl.cs" />
      <Compile Include="Assets\Scripts\CamRotation.cs" />
      <Compile Include="Assets\Scripts\Constants.cs" />
+     <Compile Include="Assets\Scripts\CountDownTimer.cs" />
+     <Compile Include="Assets\Scripts\CountDownTimer2.cs" />
+     <Compile Include="Assets\Scripts\CountDownTimer3.cs" />
      <Compile Include="Assets\Scripts\ExtendedEventArgs.cs" />
+     <Compile Include="Assets\Scripts\JumpScript2.cs" />
      <Compile Include="Assets\Scripts\Lobby.cs" />
      <Compile Include="Assets\Scripts\Login.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
@@ -82,11 +86,14 @@
      <Compile Include="Assets\Scripts\rotatorGifts.cs" />
      <Compile Include="Assets\Scripts\RotatorPumpkins.cs" />
      <Compile Include="Assets\Scripts\SignUp.cs" />
-     <None Include="Assets\LowPolyWater_Pack\LowPoly Island\Credits.txt" />
+     <Compile Include="Assets\Scripts\TextComboScript.cs" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLitTransparent.shader" />
      <None Include="Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
      <None Include="Assets\Fruit Pack\Shaders\ToonLit.shader" />
      <None Include="Assets\Lowpoly paper boats\doc\readme.txt" />
+     <None Include="Assets\Roads\FileNamesDescription.txt" />
+     <None Include="Assets\Simple city plain\Read_me.txt" />
+     <None Include="Assets\Roads\Free\ReadMe.txt" />
      <None Include="Assets\Fish\README.txt" />
      <None Include="Assets\read me.txt" />
  <Reference Include="Facebook.Unity.Settings">

@@ -16,6 +16,7 @@ public class SignUp : MonoBehaviour {
 	public Texture background;
 	private string user_id = "";
 	private string password = "";
+	private string email = "";
 	private Rect windowRect;
 	private bool isHidden;
 	
@@ -35,7 +36,7 @@ public class SignUp : MonoBehaviour {
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
 		
 		// Client Version Label
-		GUI.Label(new Rect(Screen.width - 75, Screen.height - 30, 65, 20), "v" + Constants.CLIENT_VERSION + " Test");
+		GUI.Label(new Rect(Screen.width - 75, Screen.height - 20, 65, 20), "v" + Constants.CLIENT_VERSION + " Test");
 
 		// Login Interface
 		if (!isHidden) {
@@ -53,19 +54,25 @@ public class SignUp : MonoBehaviour {
 		GUI.SetNextControlName("username_field");
 		user_id = GUI.TextField(new Rect(30, 45, windowRect.width - 60, 30), user_id, 25);
 
-		GUILayout.Space(50);
+		GUILayout.Space(32);
 		
 		GUILayout.Label("Password");
 		GUI.SetNextControlName("password_field");
 		password = GUI.PasswordField(new Rect(30, 100, windowRect.width - 60, 30), password, "*"[0], 25);
-		
-		GUILayout.Space(100);
 
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "Sign up")) {
+		GUILayout.Space(31);
+
+		GUILayout.Label("Email");
+		GUI.SetNextControlName("email_field");
+		email = GUI.TextField(new Rect(30, 155, windowRect.width - 60, 30), email, 50);
+
+		GUILayout.Space(130);
+
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 200, 100, 30), "Sign up")) {
 			Submit();
 		}
-		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "Return to login")) {
-			SceneManager.LoadScene ("Login");
+		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 240, 100, 30), "Return to login")) {
+			SceneManager.LoadSceneAsync("Login");
 		}
 		
 	}
