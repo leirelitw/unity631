@@ -19,12 +19,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1280
     height: 638
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
   controlID: 4502
+=======
+    width: 1920
+    height: 1067
+  m_MinSize: {x: 711, y: 471}
+  m_MaxSize: {x: 18006, y: 14021}
+  vertical: 0
+  controlID: 133
+>>>>>>> parent of f4f7d817... fix master branch
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -48,9 +57,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 314
     width: 765
     height: 396
+=======
+    y: 672
+    width: 887
+    height: 466
+>>>>>>> parent of f4f7d817... fix master branch
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 1
   m_Gizmos: 0
@@ -60,10 +75,17 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -382.5
     m_HBaseRangeMax: 382.5
     m_VBaseRangeMin: -189.5
     m_VBaseRangeMax: 189.5
+=======
+    m_HBaseRangeMin: -443.5
+    m_HBaseRangeMax: 443.5
+    m_VBaseRangeMin: -224.5
+    m_VBaseRangeMax: 224.5
+>>>>>>> parent of f4f7d817... fix master branch
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -80,25 +102,43 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
       width: 765
       height: 379
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 382.5, y: 189.5}
+=======
+      width: 887
+      height: 449
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 443.5, y: 224.5}
+>>>>>>> parent of f4f7d817... fix master branch
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -382.5
       y: -189.5
       width: 765
       height: 379
+=======
+      x: -443.5
+      y: -224.5
+      width: 887
+      height: 449
+>>>>>>> parent of f4f7d817... fix master branch
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 765, y: 396}
+=======
+  m_LastWindowPixelSize: {x: 887, y: 466}
+>>>>>>> parent of f4f7d817... fix master branch
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -120,12 +160,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 767
     height: 638
   m_MinSize: {x: 202, y: 421}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
   controlID: 4503
+=======
+    width: 889
+    height: 1067
+  m_MinSize: {x: 202, y: 421}
+  m_MaxSize: {x: 4002, y: 8021}
+  vertical: 1
+  controlID: 32
+>>>>>>> parent of f4f7d817... fix master branch
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,10 +191,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 767
-    height: 221
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+    width: 889
+    height: 580
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -175,28 +224,38 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 93
-    width: 765
-    height: 200
+    y: 92
+    width: 887
+    height: 559
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
+<<<<<<< HEAD
   lastFramingTime: 3630.164759993553
+=======
+  lastFramingTime: 279.1961179971695
+>>>>>>> parent of f4f7d817... fix master branch
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 362.65646, y: -268.80386, z: 123.97128}
     speed: 2
     m_Value: {x: 362.65646, y: -268.80386, z: 123.97128}
+=======
+    m_Target: {x: 573.3724, y: 274.74942, z: 141.9396}
+    speed: 2
+    m_Value: {x: 573.3724, y: 274.74942, z: 141.9396}
+>>>>>>> parent of f4f7d817... fix master branch
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
-    showFog: 0
+    showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 0
-    showFlares: 0
-    showImageEffects: 0
-    showParticleSystems: 0
+    showSkybox: 1
+    showFlares: 1
+    showImageEffects: 1
+    showParticleSystems: 1
   grid:
     xGrid:
       m_Target: 0
@@ -211,6 +270,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
@@ -218,6 +278,15 @@ MonoBehaviour:
     m_Target: 678.6235
     speed: 2
     m_Value: 678.6235
+=======
+    m_Target: {x: -0.2719788, y: 0.4383032, z: -0.14107701, w: -0.84499425}
+    speed: 2
+    m_Value: {x: -0.27197877, y: 0.43830314, z: -0.141077, w: -0.8449941}
+  m_Size:
+    m_Target: 660.0477
+    speed: 2
+    m_Value: 660.0477
+>>>>>>> parent of f4f7d817... fix master branch
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -253,8 +322,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 93
-    width: 765
-    height: 394
+    width: 704
+    height: 325
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &7
 MonoBehaviour:
@@ -271,9 +340,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 221
     width: 767
     height: 417
+=======
+    y: 580
+    width: 889
+    height: 487
+>>>>>>> parent of f4f7d817... fix master branch
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
@@ -297,14 +372,23 @@ MonoBehaviour:
   - {fileID: 11}
   m_Position:
     serializedVersion: 2
-    x: 767
+    x: 889
     y: 0
+<<<<<<< HEAD
     width: 235
     height: 638
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
   controlID: 4579
+=======
+    width: 472
+    height: 1067
+  m_MinSize: {x: 234, y: 471}
+  m_MaxSize: {x: 10004, y: 14021}
+  vertical: 1
+  controlID: 102
+>>>>>>> parent of f4f7d817... fix master branch
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -321,8 +405,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 235
     height: 287
+=======
+    width: 472
+    height: 480
+>>>>>>> parent of f4f7d817... fix master branch
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 10}
@@ -352,6 +441,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 769
     y: 93
     width: 231
@@ -362,6 +452,18 @@ MonoBehaviour:
     m_SelectedIDs: c6d3feff
     m_LastClickedID: -76858
     m_ExpandedIDs: 96fbffff00000000be520000f2640000
+=======
+    x: 891
+    y: 92
+    width: 468
+    height: 459
+  m_PersistentViewDataDictionary: {fileID: 0}
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 72720000
+    m_LastClickedID: 29298
+    m_ExpandedIDs: 2404ffff00000000
+>>>>>>> parent of f4f7d817... fix master branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -380,7 +482,11 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
   m_ExpandedScenes:
+<<<<<<< HEAD
   - HalloweenScene
+=======
+  - LegoScene
+>>>>>>> parent of f4f7d817... fix master branch
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -399,9 +505,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 287
     width: 235
     height: 351
+=======
+    y: 480
+    width: 472
+    height: 587
+>>>>>>> parent of f4f7d817... fix master branch
   m_MinSize: {x: 230, y: 250}
   m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 12}
@@ -431,10 +543,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 769
     y: 380
     width: 231
     height: 330
+=======
+    x: 891
+    y: 572
+    width: 468
+    height: 566
+>>>>>>> parent of f4f7d817... fix master branch
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -447,19 +566,27 @@ MonoBehaviour:
     m_ScenePaths: []
     m_ShowAllHits: 0
     m_SearchArea: 0
+<<<<<<< HEAD
     m_Folders:
     - Assets/Zombies
+=======
+    m_Folders: []
+>>>>>>> parent of f4f7d817... fix master branch
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/leirelitwin/Documents/GitHub/unity631/ballgame
+  m_LastProjectPath: C:\Users\kingp\Documents\Unity Projects\ballgame
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ee240000
     m_LastClickedID: 9454
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000622a0000702a0000502c0000542c0000722c00007c2c0000703200001a330000483400006a340000be340000423500006e350000123600006e36000004370000323700005e370000a2380000c6380000c8380000de3800004a3900003a3a0000fc3a00003a3b0000da3b0000283c0000363d0000583d0000743d0000c23e0000463f00003e400000ea4200001a4300007c430000b8430000ba430000c8430000647b0000667b0000687b00006a7b00006c7b00006e7b0000707b0000727b0000747b0000767b0000787b00007a7b00007c7b00007e7b0000807b0000827b0000847b0000867b0000887b00008a7b00008c7b00008e7b0000907b0000
+=======
+    m_ExpandedIDs: 00000000e42e00001a570000b25a0000ca6000008a61000004630000466300006063000064630000f86300002a6500005a6500005e65000078650000c86500003866000078660000a0660000be66000054670000c2670000ca670000e6670000d8770000da770000dc770000de770000e0770000e2770000e4770000e6770000e8770000ea770000ec770000ee770000f0770000f2770000f4770000
+>>>>>>> parent of f4f7d817... fix master branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -484,10 +611,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 1337}
     m_SelectedIDs: c6d3feff
     m_LastClickedID: 0
     m_ExpandedIDs: 00000000622a0000702a0000502c0000542c0000722c00007c2c0000703200001a330000483400006a340000be340000423500006e350000123600006e36000004370000323700005e370000a2380000c6380000c8380000de3800004a3900003a3a0000fc3a00003a3b0000da3b0000283c0000363d0000583d0000743d0000c23e0000463f00003e400000ea4200001a4300007c430000b8430000ba430000c8430000647b0000667b0000687b00006a7b00006c7b00006e7b0000707b0000727b0000747b0000767b0000787b00007a7b00007c7b00007e7b0000807b0000827b0000847b0000867b0000887b00008a7b00008c7b00008e7b0000907b0000
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 72720000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 00000000e42e00001a570000b25a0000ca6000008a610000046300004663000060630000646300002a6500005a6500005e65000078650000c86500003866000078660000a0660000be66000054670000c2670000ca670000e6670000d8770000da770000dc770000de770000e0770000e2770000e4770000e6770000e8770000ea770000ec770000ee770000f0770000f2770000f4770000
+>>>>>>> parent of f4f7d817... fix master branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -512,9 +646,15 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: c6d3feff
     m_LastClickedInstanceID: -76858
     m_HadKeyboardFocusLastEvent: 1
+=======
+    m_SelectedInstanceIDs: 72720000
+    m_LastClickedInstanceID: 29298
+    m_HadKeyboardFocusLastEvent: 0
+>>>>>>> parent of f4f7d817... fix master branch
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -556,10 +696,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1002
+    x: 1361
     y: 0
+<<<<<<< HEAD
     width: 278
     height: 638
+=======
+    width: 559
+    height: 1067
+>>>>>>> parent of f4f7d817... fix master branch
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
@@ -589,15 +734,22 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1004
     y: 93
     width: 276
     height: 617
+=======
+    x: 1363
+    y: 92
+    width: 557
+    height: 1046
+>>>>>>> parent of f4f7d817... fix master branch
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
-    m_CachedPref: -181
+    m_CachedPref: -160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}

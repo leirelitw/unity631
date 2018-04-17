@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/GAME SCENES/HalloweenScene.unity
+=======
+- path: Assets/Scenes/GUI DESIGN/Lobby.unity
+>>>>>>> parent of f4f7d817... fix master branch
   isLoaded: 1
   isActive: 1

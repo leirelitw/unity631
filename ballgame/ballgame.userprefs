@@ -1,5 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CountDownTimer3.cs">
     <Files>
       <File FileName="Assets/Scripts/JumpScript2.cs" Line="27" Column="1" />
@@ -11,6 +12,21 @@
       <File FileName="Assets/Scripts/TextComboScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ExtendedEventArgs.cs" Line="3" Column="1" />
       <File FileName="Assets/Scripts/ScoreManager.cs" Line="9" Column="2" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/button_changeScene.cs">
+    <Files>
+      <File FileName="Assets/Scripts/button_changeScene.cs" Line="11" Column="37" />
+      <File FileName="Assets/Scripts/Login.cs" Line="24" Column="43" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BallJump.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/rotatorGifts.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RotatorPumpkins.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Main.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Constants.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Utility/SimpleActivatorMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Utility/ForcedReset.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Network/Response/ResponseLogin.cs" Line="1" Column="1" />
+>>>>>>> parent of f4f7d817... fix master branch
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
