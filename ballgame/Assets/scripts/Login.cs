@@ -8,7 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour {
 	
-	private GameObject mainObject;
+	private GameObject main;
+    private ConnectionManager con_man;
+    private PlayerHandler player;
 	// Window Properties
 	private float width = 280;
 	private float height = 100;
@@ -20,9 +22,10 @@ public class Login : MonoBehaviour {
 	private bool isHidden;
 	
 	void Awake() {
-		//mainObject = GameObject.Find("MainObject");
-		//mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
-	}
+        main = GameObject.Find("MainObject");
+        con_man = main.GetComponent<ConnectionManager>();
+        player = main.GetComponent<PlayerHandler>();
+    }
 	
 	// Use this for initialization
 	void Start() {
@@ -61,8 +64,7 @@ public class Login : MonoBehaviour {
 		GUILayout.Space(100);
 
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 145, 100, 30), "Log In")) {
-			//Submit();
-			SceneManager.LoadSceneAsync("Lobby");
+			Submit();
 		}
 		if (GUI.Button(new Rect(windowRect.width / 2 - 50, 185, 100, 30), "Sign up")) {
 			SceneManager.LoadSceneAsync("SignUp");
@@ -70,43 +72,54 @@ public class Login : MonoBehaviour {
 		
 	}
 	
-	public void Submit() {
+	public bool Submit() {
 		user_id = user_id.Trim();
 		password = password.Trim();
 		
 		if (user_id.Length == 0) {
 			Debug.Log("User ID Required");
 			GUI.FocusControl("username_field");
+            return false;
 		} else if (password.Length == 0) {
 			Debug.Log("Password Required");
 			GUI.FocusControl("password_field");
+            return false;
 		} else {
-			ConnectionManager cManager = mainObject.GetComponent<ConnectionManager>();
-			if (cManager) {
-				cManager.send(requestLogin(user_id, password));
-			}
-		}
-	}
 
-	public RequestLogin requestLogin(string username, string password) {
-		RequestLogin request = new RequestLogin();
-		request.send(username, password);
-		
-		return request;
-	}
-	
-	public void ResponseLogin(ExtendedEventArgs eventArgs) {
-		ResponseLoginEventArgs args = eventArgs as ResponseLoginEventArgs;
-		
-		if (args.status == 0) {
-			Constants.USER_ID = args.user_id;
-			SceneManager.LoadSceneAsync("Lobby");
-		} else {
-			Debug.Log("Login Failed");
-		}
-	}
+            //tests request sending
+            Debug.Log("onTriggerEnter()");
 
-	public void Show() {
+            Debug.Log("get connection manager");
+            if (con_man == null)
+                Debug.Log("ConnectionManager is null....");
+            else
+                Debug.Log("ConnectionManager is NOT null");
+            //con_man.setupSocket();
+            con_man.send("/login?username="+user_id+"&password="+password, Constants.response_login, ResponseLogin);
+            Debug.Log("Sent request");
+            return true;
+        }
+
+
+	}
+    
+
+    public IEnumerator ResponseLogin(Response eventArgs)
+    {
+        Debug.Log("ResponseLogin(): " + eventArgs.response);
+
+        if (eventArgs.response != "error")
+        {
+            player.setSessionID(eventArgs.response);
+            SceneManager.LoadScene("Lobby");
+        }
+        else
+            Debug.Log("Invalid login...");
+
+        yield return 0;
+    }
+
+    public void Show() {
 		isHidden = false;
 	}
 	

@@ -5,7 +5,10 @@ using System.Collections.Generic;
 
 public class MessageQueue : MonoBehaviour {
 
+    //Callback method
 	public delegate void Callback(ExtendedEventArgs eventArgs);
+
+
 	public Dictionary<int, Callback> callbackList { get; set; }
 	public Queue<ExtendedEventArgs> msgQueue { get; set; }
 
