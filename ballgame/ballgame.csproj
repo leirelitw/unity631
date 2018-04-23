@@ -245,6 +245,8 @@
     <Compile Include="Assets\Island\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Island\Scripts\WaterScroller.cs" />
     <Compile Include="Assets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />
+    <Compile Include="Assets\Matt&apos;s Work\MattPlayerControllerScript.cs" />
+    <Compile Include="Assets\Prefabs\Zombies\ZombieScript.cs" />
     <Compile Include="Assets\Scripts\BallJump.cs" />
     <Compile Include="Assets\Scripts\button_changeScene.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
@@ -277,8 +279,6 @@
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\SignUp.cs" />
     <Compile Include="Assets\Scripts\TextComboScript.cs" />
-    <Compile Include="Assets\Zombies\Read me.cs" />
-    <Compile Include="Assets\Zombies\ZombieScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fish\README.txt" />
@@ -314,7 +314,6 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
-    <None Include="Assets\read me.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

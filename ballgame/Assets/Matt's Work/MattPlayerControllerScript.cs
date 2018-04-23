@@ -37,7 +37,7 @@ public class MattPlayerControllerScript : MonoBehaviour
         switch (typeOfBall)
         {
             case "Speedy":
-                acceleration = 12;
+                acceleration = 25;
                 maxSpeed = 25;
                 break;
             case "Jumpy":
