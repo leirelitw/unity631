@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -38,6 +39,9 @@ public class GameHandler : MonoBehaviour {
     void Awake()
     {
         main = GameObject.Find("MainObject");
+
+        wait_timer.text = "";
+        game_timer.text = "";
     }
 
     // Use this for initialization
@@ -105,6 +109,7 @@ public class GameHandler : MonoBehaviour {
         //while waiting for game to start, player isn't allowed to move
         if (wait_time > 0)
         {
+            game_timer.text = "";
             player_controller.allowMovement(false);
             //Text waitTimer = wait_timer.transform.GetComponent<Text>();
             wait_timer.text = wait_time.ToString();
@@ -113,14 +118,47 @@ public class GameHandler : MonoBehaviour {
         //game has started, and call this ONCE
         else if(game_started==false)
         {
-            wait_timer.text = "GO!";
+            //game_timer.text = game_time.ToString();
+            game_timer.text = convertTime(game_time);
             game_started = true;
             player_controller.allowMovement(true);
+        }
+        //game has started
+        else
+        {
+            wait_timer.text = "";
+            game_timer.text = convertTime(game_time);
+            
+
+            //game has ended
+            if (game_time == 0)
+                gameOver();
         }
 
         trying_get_game_timer = false;
 
         yield return 0;
+    }
+
+    public String convertTime(int time_left)
+    {
+        //if there's time left
+        if (time_left > 0)
+        {
+            int minutes = time_left / 60;
+            int seconds = time_left % 60;
+
+            if (seconds > 9)
+                return "0" + minutes.ToString() + ":" + seconds.ToString();
+            else
+                return "0" + minutes.ToString() + ":0" + seconds.ToString();
+        }
+        //if there's no time left
+        else if (time_left <= 0)
+            return "Time's up!";
+
+        return "";
+        
     }
 
     //handles receiving player coordinates
@@ -185,7 +223,7 @@ public class GameHandler : MonoBehaviour {
                     sendCoordinates();
 
                 //retrieves game timer data every second
-                if (frame_counter%24==0 && trying_get_game_timer == false)
+                if (frame_counter%24==0)
                     getGameTimer();
             }
         }
@@ -249,6 +287,12 @@ public class GameHandler : MonoBehaviour {
         }
         catch (Exception ex) { }
         
+        
+    }
+
+    private void gameOver()
+    {
+       SceneManager.LoadScene("Ranking");
         
     }
 

@@ -82,7 +82,7 @@ public class ConnectionManager : MonoBehaviour
                 NetworkStream stream = sockets[counter].GetStream();
                 if (stream.DataAvailable)
                 {
-                    Debug.Log(getCurrentMilliseconds() + ": Reading line: ");
+                    //Debug.Log(getCurrentMilliseconds() + ": Reading line: ");
                     byte[] buffer = new byte[2048];
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
                     stream.Flush();
@@ -105,25 +105,12 @@ public class ConnectionManager : MonoBehaviour
 
                         Response response = new Response();
                         response.response = reply.Substring(3); //removes first 3 characters relating to protocol
-
-                        //calls callback method in new thread so as not to slow down update()
-                        //try
-                        //{
-                        //    Debug.Log("Running callback THREAD");
-                        //    //sends in a new thread
-                        //    Callback callback = callbacks[protocol];
-                        //    Thread newThread = new Thread(() => callback(response));
-                        //    newThread.Start();
-                        //    Debug.Log("Finished running callback");
-                        //} catch(Exception ex)
-                        //{
+                        
                         //if fails, then can't call callback in thread, so call it in coroutine
-                        Debug.Log(getCurrentMilliseconds() + ": Running callback COROUTINE");
+                        //Debug.Log(getCurrentMilliseconds() + ": Running callback COROUTINE");
                         Callback callback = callbacks[protocol];
                         StartCoroutine(callback(response));
-                        //callback(response);
-                        Debug.Log(getCurrentMilliseconds() + ": Finished running callback");
-                        //}
+                        //Debug.Log(getCurrentMilliseconds() + ": Finished running callback");
                     }
                     catch (Exception ex)
                     {
@@ -177,11 +164,11 @@ public class ConnectionManager : MonoBehaviour
         //sets callback method
         callbacks[callback_protocol] = callback;
 
-        Debug.Log(getCurrentMilliseconds() + ": Starting sending thread");
+        //Debug.Log(getCurrentMilliseconds() + ": Starting sending thread");
         //sends in a new thread
         Thread newThread = new Thread(() => send2(url));
         newThread.Start();
-        Debug.Log(getCurrentMilliseconds() + ": Ending sending thread");
+        //Debug.Log(getCurrentMilliseconds() + ": Ending sending thread");
 
         //StartCoroutine(send2(url));
 

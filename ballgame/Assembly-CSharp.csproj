@@ -71,8 +71,10 @@
      <Compile Include="Assets\Scripts\Lobby.cs" />
      <Compile Include="Assets\Scripts\Login.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
+     <Compile Include="Assets\Scripts\MattPlayerControllerScript.cs" />
      <Compile Include="Assets\Scripts\MessageQueue.cs" />
      <Compile Include="Assets\Scripts\playerController.cs" />
+     <Compile Include="Assets\Scripts\playercontroller2.cs" />
      <Compile Include="Assets\Scripts\PlayerHandler.cs" />
      <Compile Include="Assets\Scripts\Response.cs" />
      <Compile Include="Assets\Scripts\rotator.cs" />
