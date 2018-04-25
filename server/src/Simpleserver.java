@@ -18,17 +18,16 @@ class SimpleServer {
     public void run()
     {
         ServerSocket server_socket;
-        Socket socket = null;
-        String resource = null;
+        //Socket socket = null;
 
-        String mainRequestLine = "";
 
         try {
             server_socket = new ServerSocket(1299);
-            System.out.println("Opened socket " + 1299);
+            System.out.println("Opened server socket " + 1299);
             while (true) {
 
                 // keeps listening for new clients, one at a time
+                Socket socket = null;
                 try {
                     socket = server_socket.accept(); // waits for client here
                 } catch (IOException e) {
@@ -36,52 +35,10 @@ class SimpleServer {
                     System.exit(1);
                 }
 
-                InputStream stream = socket.getInputStream();
-                BufferedReader in = new BufferedReader(new InputStreamReader(stream));
-                try {
-
-                    // read the first line to get the request method, URI and HTTP version
-                    String line = in.readLine();
-                    System.out.println("----------REQUEST START---------");
-                    System.out.println(line);
-
-                    mainRequestLine = line;
-
-                    System.out.println("----------REQUEST END---------\n\n");
-                } catch (Exception ex) {
-                    System.out.println("Error reading");
-                    //System.exit(1);
-                }
-
-                try {
-                    BufferedOutputStream out = new BufferedOutputStream(socket.getOutputStream());
-                    PrintWriter writer = new PrintWriter(out, true);  // char output to the client
-
-//                    // every response will always have the status-line, date, and server name
-//                    writer.println("HTTP/1.1 200 OK");
-//                    writer.println("Server: TEST");
-//                    writer.println("Connection: close");
-//                    writer.println("Content-type: text/plain");
-//                    writer.println("");
-
-                    String linePartsarray[] = mainRequestLine.split(" ");
-                    //just the uri, so "/User"
-                    String resourceString = linePartsarray[1];
-                    System.out.println("Resource String: " + resourceString);
-
-//                Processor processor = ProcessorFactory.getProcessor(resourceString);
-
-                    String response = game_server.processRequest(resourceString);
-
-                    // Body of our response
-//                writer.println(processor.process());
-
-                    writer.println(response);
-                } catch(Exception ex){
-                    System.out.println("Error writing: "+ex.toString());
-                }
-
-                socket.close();
+                //multithreading request handling
+                RequestHandler request_handler = new RequestHandler(game_server, socket);
+                Thread thread = new Thread(request_handler);
+                thread.start();
             }
         } catch (IOException e) {
             System.out.println("Error opening socket");
@@ -93,5 +50,74 @@ class SimpleServer {
     public static void main(String[] args) throws IOException {
         SimpleServer server = new SimpleServer();
         server.run();
+    }
+}
+
+
+class RequestHandler implements Runnable
+{
+    private GameServer game_server;
+    private Socket socket = null;
+
+    public RequestHandler(GameServer game_server, Socket new_socket)
+    {
+        this.game_server = game_server;
+        this.socket = new_socket;
+    }
+
+    @Override
+    public void run()
+    {
+        //System.out.println("Handling request...");
+
+        String resource = null;
+
+        try
+        {
+            InputStream stream = socket.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(stream));
+
+            String line = "";
+            try {
+
+                // read the first line to get the request method, URI and HTTP version
+                line = in.readLine();
+                //System.out.println("----------REQUEST START---------");
+                //System.out.println(line);
+
+                System.out.println("Request: "+line);
+
+                //System.out.println("----------REQUEST END---------");
+            } catch (Exception ex) {
+                System.out.println("Error reading");
+            }
+
+            try {
+                //System.out.println("----------RESPONSE START---------");
+                BufferedOutputStream out = new BufferedOutputStream(socket.getOutputStream());
+                PrintWriter writer = new PrintWriter(out, true);  // char output to the client
+
+
+                String response = game_server.processRequest(line);
+                writer.println(response);
+
+                // Body of our response
+                //System.out.println("-- Sending out --");
+                System.out.println("Response: "+response);
+
+
+                //System.out.println("----------RESPONSE END---------\n\n");
+            } catch (Exception ex) {
+                System.out.println("Error writing: " + ex.toString());
+            }
+        } catch(Exception ex){
+
+        }
+
+        //closes socket connection once done
+        try
+        {
+            socket.close();
+        } catch(Exception ex){}
     }
 }

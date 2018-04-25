@@ -2,61 +2,338 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
+
+
 public class Game {
+
+    //Coordinate object for tracking coordinates
+    public class Coordinate{
+        public float x;
+        public float y;
+        public float z;
+        public float rotate_x;
+        public float rotate_y;
+        public float rotate_z;
+
+        public Coordinate(){
+            x = 0;
+            y = 0;
+            z = 0;
+            rotate_x = 0;
+            rotate_y = 0;
+            rotate_z = 0;
+        }
+
+        public Coordinate(float x, float y, float z, float rotate_x, float rotate_y, float rotate_z){
+            setCoordinate(x, y, z, rotate_x, rotate_y, rotate_z);
+        }
+
+        public void setCoordinate(float new_x, float new_y, float new_z, float new_rotate_x, float new_rotate_y, float new_rotate_z){
+            this.x = new_x;
+            this.y = new_y;
+            this.z = new_z;
+            this.rotate_x = new_rotate_x;
+            this.rotate_y = new_rotate_y;
+            this.rotate_z = new_rotate_z;
+        }
+
+        public String toString()
+        {
+            return Float.toString(x)+","+Float.toString(y)+","+Float.toString(z)+","+Float.toString(rotate_x)
+                    +","+Float.toString(rotate_y)+","+Float.toString(rotate_z);
+        }
+    }
+
+
+
 
     private int game_id;
 
+    public String map_name;         //tracks currently playing map
+
+
+
+    //private Player[] players = new Player[max_num_players];
+    private ArrayList<Player> players;
+    private ArrayList<String> objects_collected;    //keeps track of the objects that have been collected by storing session_ids
+    private ArrayList<Coordinate> player_coordinates;
+
+
     //number of players currently playing in the game
     private int num_players = 0;
-    //minimum number of players for a game to start
-    private int min_num_players = 2;
-    //maximum number of players in a game
-    private int max_num_players = 6;
-    private Player[] players = new Player[max_num_players];
+    private final int min_num_players = 2;  //minimum number of players for a game to start
+    private final int max_num_players = 6;  //maximum number of players in a game
+    private final int game_length = 300;    //length of a game in seconds
+    private final int time_wait = 10;       //length of waiting for game to start in seconds
+
+
+    //number of seconds left in play
+    private int seconds_left = game_length;
+    //number of seconds to wait for game to start
+    private int time_to_wait = time_wait;
+
+
+
+    //the names of all available maps
+    public String[] map_names = {"ChocolateScene"};
+    //number of collectables in all available maps. Correspands to map_names
+    public int[] num_collectables = {10};
+    //stores spawn coordinates for all maps so that when player first joins, they can update their coordinates
+    public Coordinate[][] spawn_coordinates;
+
+
+
+
+
     //true if game has started
     private boolean started = false;
     //true if game has ended
     private boolean finished = false;
-    //number of seconds left in play
-    private int seconds_left = 300;
-    //number of seconds to wait for game to start
-    private int time_to_wait = 60;
 
+
+
+    //Threads
+    private Thread waitThread;
     private Thread runThread;
+
+
+
+
+
+
 
 
 
     public Game(int game_id)
     {
         this.game_id = game_id;
+
+        //initializes initial spawning positions
+        spawn_coordinates = new Coordinate[map_names.length][max_num_players];
+
+        //map 1 spawn coordinate initialization
+        Coordinate[] map1 = new Coordinate[max_num_players];
+        map1[0] = new Coordinate(852,30,795,0,0,0);
+        map1[1] = new Coordinate(912,30,805,0,0,0);
+        map1[2] = new Coordinate(922,30,815,0,0,0);
+        map1[3] = new Coordinate(932,30,825,0,0,0);
+        map1[4] = new Coordinate(942,30,835,0,0,0);
+        map1[5] = new Coordinate(952,30,845,0,0,0);
+        spawn_coordinates[0] = map1;
+
+
+        players = new ArrayList<Player>();
+        objects_collected = new ArrayList<String>();
+        player_coordinates = new ArrayList<Coordinate>();
+    }
+
+    //starts the wait for the game to start
+    public void startWait()
+    {
+        System.out.println("startWait()");
+        waitThread = new Thread() {
+
+            public void run() {
+
+
+                try {
+
+
+
+                    while (time_to_wait > 0) {
+
+
+                        //waits for 2 players to be in game before it starts count down
+                        while(num_players<min_num_players){
+                            //System.out.println("Waiting for enough players to join");
+
+                            //resets timer
+                            time_to_wait = time_wait;
+
+                            TimeUnit.SECONDS.sleep(1);
+
+                        }
+
+                        time_to_wait--;
+                        TimeUnit.SECONDS.sleep(1);
+                    }
+
+                    //starts game after 3 seconds to give the client time to load
+                    TimeUnit.SECONDS.sleep(3);
+
+                } catch (Exception ex) {
+                    System.out.println("Timeout ERROR: " + ex.toString());
+                }
+
+
+
+                startGame();
+            }
+
+        };
+
+        waitThread.start();
     }
 
     //runs the game in its own thread
-    public void run()
+    public void startGame()
     {
         runThread = new Thread() {
 
             public void run() {
-                int seconds = 0;
-                while (true) {
+            started = true;
 
-                    System.out.println("Game: "+game_id);
-                    System.out.println("Num players: "+num_players);
-                    System.out.println();
+            try {
+                while (seconds_left > 0) {
+
+//                    System.out.println("Game: "+game_id);
+//                    System.out.println("Num players: "+num_players);
+//                    System.out.println();
 
 
-                    seconds++;
 
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (Exception ex) {
-                        System.out.println("Timeout ERROR: " + ex.toString());
-                    }
+//                    //prints players coordinates
+//                    for(int x = 0; x < num_players; x++)
+//                    {
+//                        System.out.println(player_coordinates.get(x).toString());
+//                    }
+
+
+                    seconds_left--;
+                    TimeUnit.SECONDS.sleep(1);
+
                 }
+
+
+                //compile winners
+                compile_winners();
+
+                //waits 5 seconds before resettings the game
+                TimeUnit.SECONDS.sleep(5);
+
+
+                //game has ended
+                finished = true;
+
+            } catch (Exception ex) {
+                System.out.println("Timeout ERROR: " + ex.toString());
+            }
+
+
             }
 
         };
+
+        runThread.start();
+
+
     }
+
+    //updates coordinates of player specified by session_id
+    public void updatePlayerCoordinates(String session_id, String coordinate)
+    {
+        //gets the player associated with the session_id
+        int player_index = getPlayerIndex(session_id);
+
+        //invalid session_id, so stop
+        if(player_index==-1)
+            return;
+
+        Coordinate coor = player_coordinates.get(player_index);
+
+        //in a try catch because don't trust user input data
+        try {
+            //gets array of the
+            String[] split_str = coordinate.split(",");
+            float x = Float.parseFloat(split_str[0]);
+            float y = Float.parseFloat(split_str[1]);
+            float z = Float.parseFloat(split_str[2]);
+            float rotate_x = Float.parseFloat(split_str[3]);
+            float rotate_y = Float.parseFloat(split_str[4]);
+            float rotate_z = Float.parseFloat(split_str[5]);
+
+            coor.setCoordinate(x, y, z, rotate_x, rotate_y, rotate_z);
+        } catch(Exception ex){
+
+        }
+    }
+
+    //returns all player coordinates except for specified player
+    public String getPlayerCoordinatesExcept(String session_id)
+    {
+        int cur_player_index = getPlayerIndex(session_id);
+
+        String to_return = "";
+        String delimiter = "|";
+        for(int x = 0; x < player_coordinates.size(); x++)
+        {
+            //skips specified player
+            if(x==cur_player_index)
+                continue;
+
+            //gets string version of the coordinates
+            String str_coor = player_coordinates.get(x).toString();
+
+            to_return += str_coor + delimiter;
+        }
+
+        //removes last delimiter
+        if(to_return.length() > 0)
+            to_return = to_return.substring(0, to_return.length() - 1);
+
+        return to_return;
+    }
+
+    //returns all player coordinates for every player
+    //FOR TESTING
+    public String getAllPlayerCoordinates()
+    {
+        String to_return = "";
+        String delimiter = "|";
+        for(int x = 0; x < player_coordinates.size(); x++)
+        {
+            //gets string version of the coordinates
+            String str_coor = player_coordinates.get(x).toString();
+
+
+            //if at last index, don't add delimiter
+            if(x==player_coordinates.size()-1)
+                delimiter = "";
+
+            to_return += str_coor + delimiter;
+        }
+
+        return to_return;
+    }
+
+    //returns the player's spawn coordinates in string format
+    public String getSpawnCoordinates(String session_id)
+    {
+        int cur_player_index = getPlayerIndex(session_id);
+
+        //gets map index
+        int map_index = -1;
+        for(int x = 0; x < map_names.length; x++)
+        {
+            if(map_name.equals(map_names[x])) {
+                map_index = x;
+                break;
+            }
+
+        }
+
+        //couldn't find map, so stop
+        if(map_index==-1)
+            return "";
+
+
+        //gets string version of the coordinates
+        String str_coor = spawn_coordinates[map_index][cur_player_index].toString();
+
+        return str_coor;
+    }
+
+
 
     //returns whether or not player was added successfully
     public boolean addPlayer(Player player)
@@ -67,13 +344,14 @@ public class Game {
             //checks if player is already in the game
             boolean player_already_exists = false;
             for (int x = 0; x < num_players; x++) {
-                if (players[x].getSessionID() == player.getSessionID())
+                if (players.get(x).getSessionID() == player.getSessionID())
                     player_already_exists = true;
             }
 
             //if player already isn't in game, add them
             if (player_already_exists == false) {
-                players[num_players] = player;
+                players.add(player);
+                player_coordinates.add(new Coordinate());
                 num_players++;
             } else
                 return false;
@@ -84,9 +362,41 @@ public class Game {
         return true;
     }
 
+    //remove player from the game
+    public void removePlayer(String session_id)
+    {
+        for(int x = 0; x < players.size(); x++)
+        {
+            if(players.get(x).getSessionID().equals(session_id)) {
+                players.remove(x);
+                num_players--;
+                break;
+            }
+        }
+    }
+
+    //compile scores of top players
+    public void compile_winners()
+    {
+
+    }
+
+
+    //returns true if player is in the game if given a string session_id
+    public boolean isPlayerInGame(String session_id)
+    {
+        //if a valid player object was found with the session_id, then player is part of the game
+        if(getPlayerIndex(session_id) != -1)
+            return true;
+        else
+            return false;
+    }
+
+
+
 
     //returns array of all players in the game
-    public Player[] getPlayers()
+    public ArrayList<Player> getPlayers()
     {
         return this.players;
     }
@@ -96,10 +406,66 @@ public class Game {
         return this.game_id;
     }
 
+    public int getNumPlayers() { return this.num_players; }
+
+    public int getMaxPlayers() { return this.max_num_players; }
+
+    public int getSecondsLeft() { return this.seconds_left; }
+
+    public int getWaitLeft() { return this.time_to_wait; }
+
+    public boolean hasGameStarted() { return this.started; }
+
+    public boolean hasFinished() { return this.finished; }
+
+
+
+    //keeps all players in the game, just changes the map
+    public void restartGame()
+    {
+        time_to_wait = time_wait;
+        seconds_left = game_length;
+
+        //generates random map that isn't current map
+        int map_index = (int)Math.floor(Math.random() * map_names.length);
+        map_name = map_names[map_index];
+
+
+        //starts wait again
+        //startWait();
+    }
+
+    //returns the index of the player in the players global variable
+    public int getPlayerIndex(String session_id)
+    {
+        for(int x = 0; x < players.size(); x++)
+        {
+            if(players.get(x).getSessionID().equals(session_id))
+                return x;
+
+        }
+        return -1;
+    }
+
+
     public String toString()
     {
         String to_print = "-- Game --" + System.lineSeparator();
-        to_print += "----";
+        to_print += "Game_id: "+game_id + System.lineSeparator();
+        to_print += "Current map: "+map_name + System.lineSeparator();
+        to_print += "Time to wait: "+ time_to_wait +  System.lineSeparator();
+        to_print += "Seconds left: "+ seconds_left + System.lineSeparator();
+
+
+        to_print += "Players: " + System.lineSeparator();
+        for(int x = 0; x < players.size(); x++)
+        {
+            String session_id = players.get(x).getSessionID();
+            String coordinates = player_coordinates.get(x).toString();
+            to_print += "  "+(x+1)+": " + session_id + ";"+coordinates + System.lineSeparator();
+        }
+
+        to_print += "-- End Game --";
 
         return to_print;
     }
