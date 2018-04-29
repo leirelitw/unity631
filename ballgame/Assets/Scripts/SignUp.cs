@@ -7,10 +7,12 @@ using System.Net.Sockets;
 using UnityEngine.SceneManagement;
 
 public class SignUp : MonoBehaviour {
-	
-	//private GameObject mainObject;
-	// Window Properties
-	private float width = 280;
+
+    private GameObject main;
+    private ConnectionManager con_man;
+    private PlayerHandler player;
+    // Window Properties
+    private float width = 280;
 	private float height = 100;
 	// Other
 	public Texture background;
@@ -21,10 +23,10 @@ public class SignUp : MonoBehaviour {
 	private bool isHidden;
 	
 	void Awake() {
-		//mainObject = GameObject.Find("MainObject");
-
-		//mainObject.GetComponent<MessageQueue>().AddCallback(Constants.SMSG_AUTH, ResponseLogin);
-	}
+        main = GameObject.Find("MainObject");
+        con_man = main.GetComponent<ConnectionManager>();
+        player = main.GetComponent<PlayerHandler>();
+    }
 	
 	// Use this for initialization
 	void Start() {
@@ -77,26 +79,54 @@ public class SignUp : MonoBehaviour {
 		
 	}
 	
-	public void Submit() {
-		user_id = user_id.Trim();
-		password = password.Trim();
-		
-		if (user_id.Length == 0) {
-			Debug.Log("User ID Required");
-			GUI.FocusControl("username_field");
-		} else if (password.Length == 0) {
-			Debug.Log("Password Required");
-			GUI.FocusControl("password_field");
-		} else {
-			//ConnectionManager cManager = mainObject.GetComponent<ConnectionManager>();
-			
-			//if (cManager) {
-			//	cManager.send(requestLogin(user_id, password));
-			//}
-		}
-	}
+	public bool Submit() {
+        user_id = user_id.Trim();
+        password = password.Trim();
+        email = email.Trim();
 
-	public void Show() {
+        if (user_id.Length == 0)
+        {
+            Debug.Log("User ID Required");
+            GUI.FocusControl("username_field");
+            return false;
+        }
+        else if (password.Length == 0)
+        {
+            Debug.Log("Password Required");
+            GUI.FocusControl("password_field");
+            return false;
+        }
+        else if(email.Length == 0)
+        {
+            Debug.Log("Email Required");
+            GUI.FocusControl("email_field");
+            return false;
+        }
+        else
+        {
+            con_man.send("/register?username=" + user_id + "&email="+email+"&password=" + password, Constants.response_register, ResponseRegister);
+            Debug.Log("Sent request");
+        }
+
+        return true;
+
+    }
+    public IEnumerator ResponseRegister(Response eventArgs)
+    {
+        Debug.Log("ResponseRegister(): " + eventArgs.response);
+
+        if (eventArgs.response != "error")
+        {
+            player.setSessionID(eventArgs.response);
+            SceneManager.LoadScene("Lobby");
+        }
+        else
+            Debug.Log("Invalid login...");
+
+        yield return 0;
+    }
+
+    public void Show() {
 		isHidden = false;
 	}
 	
