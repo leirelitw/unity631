@@ -111,7 +111,7 @@ using System.Collections;
 
                     Mathf.Clamp(rigidBody.velocity.z, -maxSpeed, maxSpeed)
                 );
-            velocityText.text = "Velocity: " + rigidBody.velocity;
+            velocityText.text = "Velocity: " + rigidBody.velocity.magnitude;
         }
 
 
