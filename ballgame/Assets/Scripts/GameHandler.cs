@@ -18,7 +18,8 @@ public class GameHandler : MonoBehaviour {
     public Text wait_timer;
     public Text game_timer;
 
-    private GameObject player;
+    public GameObject player;
+    private GameObject player_ball;
     private playerController player_controller;
     private List<GameObject> other_players;
 
@@ -52,8 +53,10 @@ public class GameHandler : MonoBehaviour {
         player_handler = main.GetComponent<PlayerHandler>();
 
         //gets sphere, the one the client controls
-        player = GameObject.Find("Player");
-        player_controller = player.GetComponent<playerController>();
+        //player = GameObject.Find("Player");
+
+        player_ball = player.transform.GetChild(0).gameObject;
+        player_controller = player_ball.GetComponent<playerController>();
 
         //gets other players
         other_players = new List<GameObject>();
