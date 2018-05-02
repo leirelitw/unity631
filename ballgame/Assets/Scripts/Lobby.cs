@@ -45,7 +45,7 @@ public class Lobby : MonoBehaviour {
 			}
 		}
 	}
-
+    
 	void MakeWindow(int id) {
 
 		GUILayout.Space(200);

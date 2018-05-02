@@ -121,7 +121,7 @@ public class playerController : MonoBehaviour
         {
             switch (sceneName)
             {
-                case "forestScene":
+                case "ForestScene":
                     if (!AS[8].isPlaying)
                     {
                         AS[8].Play();
@@ -133,13 +133,14 @@ public class playerController : MonoBehaviour
                         AS[9].Play();
                     }
                     break;
-                case "beachScene":
+                case "BeachScene":
                     if (!AS[10].isPlaying)
                     {
                         AS[10].Play();
                     }
                     break;
             }
+            
         }
     }
 
