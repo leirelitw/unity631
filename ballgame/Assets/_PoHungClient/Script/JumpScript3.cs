@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpScript22 : MonoBehaviour {
+public class JumpScript3 : MonoBehaviour {
 
 
     public float jumpHigh = 20f;
@@ -19,22 +19,36 @@ public class JumpScript22 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
         if (onGround)
         {
             if (Input.GetButtonDown("Jump"))
             {
-				rb.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);
-                onGround = false;
+                Jump();
             }
+            
         }
 
 
 
-	}
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         collision.gameObject.CompareTag("Ground");
         onGround = true;
     }
+
+    public void Jump()
+    {
+        
+            
+                rb.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);
+                onGround = false;
+            
+        
+    }
+
+
+
 }
