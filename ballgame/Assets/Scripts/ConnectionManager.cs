@@ -89,7 +89,8 @@ public class ConnectionManager : MonoBehaviour
                     //string reply = readers[counter].ReadLine();
                     string reply = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     //removes last character since it's a newline
-                    reply = reply.Substring(0, reply.Length - 1);
+                    //removes another last character since it's a nullbyte or some shit
+                    reply = reply.Substring(0, reply.Length - 2);
                     Debug.Log(getCurrentMilliseconds() + ": reply: " + reply+"|");
                     
 
@@ -203,11 +204,13 @@ public class ConnectionManager : MonoBehaviour
         //NetworkStream stream = streams[streams.Count - 1];
         NetworkStream stream = sockets[sockets.Count - 1].GetStream();
 
+       
 
-        //String to_convert = "GET " + url + " HTTP1.1" + "\n";
-
-        //might need this to send the request
+        //need this so that the server knows when to stop reading from the stream
         url += "\n";
+        url += null;
+        url += "\n";
+
         Debug.Log(getCurrentMilliseconds()+": To_send: " + url);
 
         // Convert string message to byte array.                 
@@ -216,7 +219,7 @@ public class ConnectionManager : MonoBehaviour
         stream.Write(clientMessageAsByteArray, 0, clientMessageAsByteArray.Length);
         stream.Flush();
 
-        //Debug.Log("Sent bytes");
+        Debug.Log("Sent bytes");
         
     }
 
