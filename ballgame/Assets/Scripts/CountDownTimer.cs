@@ -17,7 +17,7 @@ public class CountDownTimer : MonoBehaviour {
 	void Update () {
 		countdownText.text = (""+timeLeft);
 		if(timeLeft <= 0){
-			countdownText.text = "Start!";
+			countdownText.text = "Start!!";
 			StartCoroutine("WaitOneSec");      
 		}
 		if (finish == 1) {
