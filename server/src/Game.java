@@ -75,8 +75,8 @@ public class Game {
 
 
     //the names of all available maps
-    public String[] map_names = {"beachScene", "ChocolateScene", "CityScene", "forestScene", "HalloweenScene", "legoScene", "WinterScene"};
-    public int[] num_collectables = {10, 10, 10, 10, 10, 10, 10}; //number of collectables in all available maps. Correspands to map_names
+    public String[] map_names = {"beachScene", "ChocolateScene", "CityScene", "forestScene", "HalloweenScene", "legoScene", "RacingScene",  "WinterScene"};
+    public int[] num_collectables = {10, 10, 10, 10, 10, 10, 10, 10}; //number of collectables in all available maps. Correspands to map_names
     //stores spawn coordinates for all maps so that when player first joins, they can update their coordinates
     public Coordinate[][] spawn_coordinates;
 
@@ -464,8 +464,12 @@ public class Game {
         start_coordinates[4] = new int[]{778, 60, 465};
         //legoScene
         start_coordinates[5] = new int[]{843, 50, 787};
+
+        //RacingScene
+        start_coordinates[6] = new int[]{-375, 100, -430};
+
         //WinterScene
-        start_coordinates[6] = new int[]{843, 80, 967};
+        start_coordinates[7] = new int[]{843, 80, 967};
 
         //initializes initial spawning positions
         spawn_coordinates = new Coordinate[map_names.length][max_num_players];
