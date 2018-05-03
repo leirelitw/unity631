@@ -81,16 +81,31 @@ class RequestHandler implements Runnable
             try {
 
                 // read the first line to get the request method, URI and HTTP version
-                line = in.readLine();
+                String temp_line = "";
+                int counter = 0;
+                do{
+                    line += temp_line;
+//                    System.out.println("Line: "+line);
+                    temp_line = in.readLine();
+
+                    char character = temp_line.charAt(0); // This gives the character 'a'
+                    int ascii = (int) character;
+//                    System.out.println("ASCII: "+ascii);
+
+//                    System.out.println(counter + ": "+temp_line);
+                } while(temp_line!=null && temp_line!="");
+
                 //System.out.println("----------REQUEST START---------");
                 //System.out.println(line);
 
-                System.out.println("Request: "+line);
+
 
                 //System.out.println("----------REQUEST END---------");
             } catch (Exception ex) {
-                System.out.println("Error reading");
+//                System.out.println("Error reading");
             }
+
+            System.out.println("Request: "+line);
 
             try {
                 //System.out.println("----------RESPONSE START---------");
