@@ -469,7 +469,7 @@ public class Game {
         start_coordinates[6] = new int[]{-375, 100, -430};
 
         //WinterScene
-        start_coordinates[7] = new int[]{843, 80, 967};
+        start_coordinates[7] = new int[]{387, 100, 58};
 
         //initializes initial spawning positions
         spawn_coordinates = new Coordinate[map_names.length][max_num_players];
