@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 public class button_changeScene : MonoBehaviour {
 
 	public string sceneName;
-	
+    public AudioSource buttonPressed;
+
     public void ChangeScene(){
-		SceneManager.LoadScene(sceneName);
-		//Application.LoadLevel(sceneNumber-1);
+        buttonPressed.Play();
+        SceneManager.LoadScene(sceneName);
     }
 
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown("escape")){
-
 			ChangeScene();
 		}
 	}
