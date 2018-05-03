@@ -75,9 +75,8 @@ public class Game {
 
 
     //the names of all available maps
-    public String[] map_names = {"ChocolateScene"};
-    //number of collectables in all available maps. Correspands to map_names
-    public int[] num_collectables = {10};
+    public String[] map_names = {"beachScene", "ChocolateScene", "CityScene", "forestScene", "HalloweenScene", "legoScene", "RacingScene",  "WinterScene"};
+    public int[] num_collectables = {10, 10, 10, 10, 10, 10, 10, 10}; //number of collectables in all available maps. Correspands to map_names
     //stores spawn coordinates for all maps so that when player first joins, they can update their coordinates
     public Coordinate[][] spawn_coordinates;
 
@@ -108,18 +107,7 @@ public class Game {
     {
         this.game_id = game_id;
 
-        //initializes initial spawning positions
-        spawn_coordinates = new Coordinate[map_names.length][max_num_players];
-
-        //map 1 spawn coordinate initialization
-        Coordinate[] map1 = new Coordinate[max_num_players];
-        map1[0] = new Coordinate(852,30,795,0,0,0);
-        map1[1] = new Coordinate(912,30,805,0,0,0);
-        map1[2] = new Coordinate(922,30,815,0,0,0);
-        map1[3] = new Coordinate(932,30,825,0,0,0);
-        map1[4] = new Coordinate(942,30,835,0,0,0);
-        map1[5] = new Coordinate(952,30,845,0,0,0);
-        spawn_coordinates[0] = map1;
+        initializeSpawnCoordinates();
 
 
         players = new ArrayList<Player>();
@@ -144,15 +132,15 @@ public class Game {
 
 
                         //waits for 2 players to be in game before it starts count down
-                        while(num_players<min_num_players){
-                            //System.out.println("Waiting for enough players to join");
-
-                            //resets timer
-                            time_to_wait = time_wait;
-
-                            TimeUnit.SECONDS.sleep(1);
-
-                        }
+//                        while(num_players<min_num_players){
+//                            //System.out.println("Waiting for enough players to join");
+//
+//                            //resets timer
+//                            time_to_wait = time_wait;
+//
+//                            TimeUnit.SECONDS.sleep(1);
+//
+//                        }
 
                         time_to_wait--;
                         TimeUnit.SECONDS.sleep(1);
@@ -309,7 +297,11 @@ public class Game {
     //returns the player's spawn coordinates in string format
     public String getSpawnCoordinates(String session_id)
     {
+        System.out.println("getSpawnCoordinates("+session_id+")");
+
         int cur_player_index = getPlayerIndex(session_id);
+
+        System.out.println("Player index: "+cur_player_index);
 
         //gets map index
         int map_index = -1;
@@ -322,13 +314,22 @@ public class Game {
 
         }
 
+        System.out.println("max index: "+map_index);
+
         //couldn't find map, so stop
         if(map_index==-1)
             return "";
 
+        System.out.println("spawn_coord len: "+spawn_coordinates.length);
+
+        System.out.println("spawn_coord_len2: "+spawn_coordinates[map_index].length);
+
 
         //gets string version of the coordinates
+        System.out.println(spawn_coordinates[map_index][cur_player_index]);
         String str_coor = spawn_coordinates[map_index][cur_player_index].toString();
+        System.out.println("Coord: "+str_coor);
+
 
         return str_coor;
     }
@@ -445,6 +446,56 @@ public class Game {
 
         }
         return -1;
+    }
+
+
+    private void initializeSpawnCoordinates()
+    {
+        int[][] start_coordinates = new int[map_names.length][3];
+        //beachScene
+        start_coordinates[0] = new int[]{712, 60, 703};
+        //ChocolateScene
+        start_coordinates[1] = new int[]{712, 80, 703};
+        //CityScene
+        start_coordinates[2] = new int[]{297, 50, 179};
+        //forestScene
+        start_coordinates[3] = new int[]{443, 60, 967};
+        //HalloweenScene
+        start_coordinates[4] = new int[]{778, 60, 465};
+        //legoScene
+        start_coordinates[5] = new int[]{843, 50, 787};
+
+        //RacingScene
+        start_coordinates[6] = new int[]{-375, 100, -430};
+
+        //WinterScene
+        start_coordinates[7] = new int[]{387, 100, 58};
+
+        //initializes initial spawning positions
+        spawn_coordinates = new Coordinate[map_names.length][max_num_players];
+
+
+
+        //map 1 spawn coordinate initialization
+
+        int x = 0;
+        int y = 0;
+        int z = 0;
+        for(int i = 0; i < map_names.length; i++)
+        {
+            Coordinate[] map = new Coordinate[max_num_players];
+            x = start_coordinates[i][0];
+            y = start_coordinates[i][1];
+            z = start_coordinates[i][2];
+            for(int j = 0; j < max_num_players; j++) {
+                map[j] = new Coordinate(x, y, z, 0, 0, 0);
+                x += 10;
+                z += 10;
+            }
+            System.out.println("Added spawn coordinates for map"+i);
+            spawn_coordinates[i] = map;
+        }
+
     }
 
 

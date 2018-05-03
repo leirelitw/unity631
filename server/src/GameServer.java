@@ -251,6 +251,8 @@ public class GameServer {
     //joins a game of map_name
     public String joinGame(String session_id, String map_name)
     {
+        System.out.println("joinGame()");
+
         //update last request time for current player
         updatePlayerRequestTime(session_id);
 
@@ -307,6 +309,8 @@ public class GameServer {
 
         to_return += param_delimiter;
 
+        System.out.println("to_return: "+to_return);
+        System.out.println("session_id: "+player.getSessionID());
 
         //returns new spawn coordinates
         to_return += game.getSpawnCoordinates(player.getSessionID());
