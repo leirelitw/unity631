@@ -41,10 +41,13 @@ public class JumpScript3 : MonoBehaviour {
 
     public void Jump()
     {
-        
-            
-                rb.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);
-                onGround = false;
+
+        if (onGround)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);
+            onGround = false;
+        }
+                
             
         
     }
