@@ -75,8 +75,8 @@ public class Game {
 
 
     //the names of all available maps
-    public String[] map_names = {"beachScene", "ChocolateScene", "CityScene", "forestScene", "WinterScene"};
-    public int[] num_collectables = {10, 10, 10, 10, 10}; //number of collectables in all available maps. Correspands to map_names
+    public String[] map_names = {"beachScene", "ChocolateScene", "CityScene", "forestScene", "HalloweenScene", "WinterScene"};
+    public int[] num_collectables = {10, 10, 10, 10, 10,10}; //number of collectables in all available maps. Correspands to map_names
     //stores spawn coordinates for all maps so that when player first joins, they can update their coordinates
     public Coordinate[][] spawn_coordinates;
 
@@ -460,8 +460,10 @@ public class Game {
         start_coordinates[2] = new int[]{297, 3, 179};
         //forestScene
         start_coordinates[3] = new int[]{443, 10, 967};
+        //HalloweenScene
+        start_coordinates[4] = new int[]{778, 10, 465};
         //WinterScene
-        start_coordinates[4] = new int[]{843, 35, 967};
+        start_coordinates[5] = new int[]{843, 35, 967};
 
         //initializes initial spawning positions
         spawn_coordinates = new Coordinate[map_names.length][max_num_players];
@@ -469,12 +471,13 @@ public class Game {
 
 
         //map 1 spawn coordinate initialization
-        Coordinate[] map = new Coordinate[max_num_players];
+
         int x = 0;
         int y = 0;
         int z = 0;
         for(int i = 0; i < map_names.length; i++)
         {
+            Coordinate[] map = new Coordinate[max_num_players];
             x = start_coordinates[i][0];
             y = start_coordinates[i][1];
             z = start_coordinates[i][2];
@@ -486,62 +489,6 @@ public class Game {
             System.out.println("Added spawn coordinates for map"+i);
             spawn_coordinates[i] = map;
         }
-//
-//
-//        for(int i = 0; i < max_num_players; i++) {
-//            map[i] = new Coordinate(x, y, z, 0, 0, 0);
-//            x += 10;
-//            z += 10;
-//        }
-//        System.out.println("Added spawn coordinates for map1");
-//        spawn_coordinates[0] = map;
-//
-//
-//
-//
-//        //map 1 spawn coordinate initialization
-//        Coordinate[] map = new Coordinate[max_num_players];
-//        int x = 712;
-//        int y = 13;
-//        int z = 703;
-//        for(int i = 0; i < max_num_players; i++) {
-//            map[i] = new Coordinate(x, y, z, 0, 0, 0);
-//            x += 10;
-//            z += 10;
-//        }
-//        System.out.println("Added spawn coordinates for map1");
-//        spawn_coordinates[0] = map;
-//
-//        //map 2 spawn coordinate initialization
-//        //Coordinate[] map = new Coordinate[max_num_players];
-//        x = 712;
-//        y = 33;
-//        z = 703;
-//        for(int i = 0; i < max_num_players; i++) {
-//            map[i] = new Coordinate(x, y, z, 0, 0, 0);
-//            x += 10;
-//            z += 10;
-//        }
-//        System.out.println("Added spawn coordinates for map2");
-//        spawn_coordinates[1] = map;
-//
-//
-//        //map 3 spawn coordinate initialization
-//        Coordinate[] map3 = new Coordinate[max_num_players];
-//        x = 297;
-//        y = 3;
-//        z = 179;
-//        for(int i = 0; i < max_num_players; i++) {
-//            map3[i] = new Coordinate(x, y, z, 0, 0, 0);
-//            x += 10;
-//            z += 10;
-//        }
-//        System.out.println("Added spawn coordinates for map2");
-//        spawn_coordinates[2] = map3;
-
-
-
-
 
     }
 
