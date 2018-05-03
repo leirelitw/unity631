@@ -258,13 +258,36 @@ public class GameHandler : MonoBehaviour {
     {
         trying_send_coordinates = true;
 
-        float x = player.transform.position.x;
-        float y = player.transform.position.y;
-        float z = player.transform.position.z;
+        float[] player_coor = new float[6];
+        float[] player_ball_coor = new float[6];
 
-        float rotate_x = player.transform.eulerAngles.x;
-        float rotate_y = player.transform.eulerAngles.y;
-        float rotate_z = player.transform.eulerAngles.z;
+        player_coor[0] = player.transform.position.x;
+        player_coor[1] = player.transform.position.y;
+        player_coor[2] = player.transform.position.z;
+        player_coor[3] = player.transform.eulerAngles.x;
+        player_coor[4] = player.transform.eulerAngles.y;
+        player_coor[5] = player.transform.eulerAngles.z;
+
+        player_ball_coor[0] = player_ball.transform.position.x;
+        player_ball_coor[1] = player_ball.transform.position.y;
+        player_ball_coor[2] = player_ball.transform.position.z;
+        player_ball_coor[3] = player_ball.transform.eulerAngles.x;
+        player_ball_coor[4] = player_ball.transform.eulerAngles.y;
+        player_ball_coor[5] = player_ball.transform.eulerAngles.z;
+
+        //float x = player_coor[0] + player_ball_coor[0];
+        //float y = player_coor[1] + player_ball_coor[1];
+        //float z = player_coor[2] + player_ball_coor[2];
+        //float rotate_x = player_coor[3] + player_ball_coor[3];
+        //float rotate_y = player_coor[4] + player_ball_coor[4];
+        //float rotate_z = player_coor[5] + player_ball_coor[5];
+
+        float x = player_ball_coor[0];
+        float y = player_ball_coor[1];
+        float z = player_ball_coor[2];
+        float rotate_x = player_ball_coor[3];
+        float rotate_y = player_ball_coor[4];
+        float rotate_z = player_ball_coor[5];
 
         string to_send = x + "," + y + "," + z+ "," + rotate_x+ "," + rotate_y + "," + rotate_z;
 

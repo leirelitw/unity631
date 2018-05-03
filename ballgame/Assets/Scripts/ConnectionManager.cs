@@ -90,7 +90,7 @@ public class ConnectionManager : MonoBehaviour
                     string reply = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                     //removes last character since it's a newline
                     //removes another last character since it's a nullbyte or some shit
-                    reply = reply.Substring(0, reply.Length - 2);
+                    reply = reply.Substring(0, reply.Length - 1);
                     Debug.Log(getCurrentMilliseconds() + ": reply: " + reply+"|");
                     
 
