@@ -2,8 +2,8 @@ public class Constants {
 	
 	// Constants
 	public static readonly string CLIENT_VERSION = "1.00";
-    public static readonly string REMOTE_HOST = "localhost";
-    //public static readonly string REMOTE_HOST = "34.196.150.205";
+    //public static readonly string REMOTE_HOST = "localhost";
+    public static readonly string REMOTE_HOST = "34.196.150.205";
 	public static readonly int REMOTE_PORT = 1299;
 
     //true if player is in multiplayer, and scenes will act differently
