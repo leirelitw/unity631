@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="Simpleserver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Simpleserver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Simpleserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+            <state relative-caret-position="1700">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -33,13 +33,10 @@
       <file leaf-file-name="GameServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+            <state relative-caret-position="393">
+              <caret line="344" column="18" lean-forward="true" selection-start-line="344" selection-start-column="18" selection-end-line="344" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#374#388#0" expanded="true" />
-                <element signature="e#3715#6442#0" expanded="true" />
-                <element signature="e#6441#6442#0" expanded="true" />
                 <element signature="method#register#0;class#GameServer#0" />
                 <element signature="method#addPlayer#0;class#GameServer#0" />
                 <element signature="method#removePlayer#0;class#GameServer#0" />
@@ -52,13 +49,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2910">
-              <caret line="435" column="5" lean-forward="true" selection-start-line="435" selection-start-column="5" selection-end-line="435" selection-end-column="5" />
+            <state relative-caret-position="360">
+              <caret line="338" column="25" selection-start-line="338" selection-start-column="25" selection-end-line="338" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#11865#11866#0" expanded="true" />
+                <element signature="e#11900#11901#0" expanded="true" />
+                <element signature="e#11934#11935#0" expanded="true" />
+                <element signature="e#11969#11970#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,8 +86,8 @@
       <file leaf-file-name="MySQLHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MySQLHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="104" column="52" lean-forward="true" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+            <state relative-caret-position="1700">
+              <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -126,14 +127,14 @@
         <option value="$PROJECT_DIR$/src/MySQLHandler.java" />
         <option value="$PROJECT_DIR$/src/Security.java" />
         <option value="$PROJECT_DIR$/src/Simpleserver.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/GameServer.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="55" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1612" />
+    <option name="y" value="149" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -142,10 +143,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,7 +405,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -415,8 +416,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26082367" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -425,17 +426,17 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Properties" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info id="Nl-Palette" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Properties" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Nl-Palette" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -518,9 +519,6 @@
           <caret line="158" column="44" selection-start-line="158" selection-start-column="42" selection-end-line="158" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#374#388#0" expanded="true" />
-            <element signature="e#3715#6442#0" expanded="true" />
-            <element signature="e#6441#6442#0" expanded="true" />
             <element signature="method#register#0;class#GameServer#0" />
             <element signature="method#addPlayer#0;class#GameServer#0" />
             <element signature="method#removePlayer#0;class#GameServer#0" />
@@ -538,6 +536,10 @@
           <caret line="34" column="19" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11865#11866#0" expanded="true" />
+            <element signature="e#11900#11901#0" expanded="true" />
+            <element signature="e#11934#11935#0" expanded="true" />
+            <element signature="e#11969#11970#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -600,9 +602,6 @@
           <caret line="136" column="5" lean-forward="true" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#374#388#0" expanded="true" />
-            <element signature="e#3715#6442#0" expanded="true" />
-            <element signature="e#6441#6442#0" expanded="true" />
             <element signature="method#register#0;class#GameServer#0" />
             <element signature="method#addPlayer#0;class#GameServer#0" />
             <element signature="method#removePlayer#0;class#GameServer#0" />
@@ -620,6 +619,10 @@
           <caret line="34" column="19" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11865#11866#0" expanded="true" />
+            <element signature="e#11900#11901#0" expanded="true" />
+            <element signature="e#11934#11935#0" expanded="true" />
+            <element signature="e#11969#11970#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -727,13 +730,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java" />
-    <entry file="file://$PROJECT_DIR$/../../Homework/HW #2/simpleserver-master/src/simpleserver/Simpleserver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="85" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Homework/HW #2/simpleserver-master/src/simpleserver/Simpleserver.java" />
     <entry file="file://$PROJECT_DIR$/../../Homework/HW #2/WoB_Server_Basic/src/core/GameServer.java" />
     <entry file="file://$PROJECT_DIR$/src/MathOpsProcessor.java" />
     <entry file="file://$PROJECT_DIR$/src/ResponseFactory.java">
@@ -801,15 +798,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MySQLHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="104" column="52" lean-forward="true" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+        <state relative-caret-position="1700">
+          <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/Simpleserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2910">
-          <caret line="435" column="5" lean-forward="true" selection-start-line="435" selection-start-column="5" selection-end-line="435" selection-end-column="5" />
+        <state relative-caret-position="1700">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -818,13 +815,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
+        <state relative-caret-position="393">
+          <caret line="344" column="18" lean-forward="true" selection-start-line="344" selection-start-column="18" selection-end-line="344" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#374#388#0" expanded="true" />
-            <element signature="e#3715#6442#0" expanded="true" />
-            <element signature="e#6441#6442#0" expanded="true" />
             <element signature="method#register#0;class#GameServer#0" />
             <element signature="method#addPlayer#0;class#GameServer#0" />
             <element signature="method#removePlayer#0;class#GameServer#0" />
@@ -836,12 +830,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Simpleserver.java">
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+        <state relative-caret-position="360">
+          <caret line="338" column="25" selection-start-line="338" selection-start-column="25" selection-end-line="338" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#11865#11866#0" expanded="true" />
+            <element signature="e#11900#11901#0" expanded="true" />
+            <element signature="e#11934#11935#0" expanded="true" />
+            <element signature="e#11969#11970#0" expanded="true" />
           </folding>
         </state>
       </provider>

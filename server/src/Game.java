@@ -55,8 +55,10 @@ public class Game {
 
     //private Player[] players = new Player[max_num_players];
     private ArrayList<Player> players;
-    private ArrayList<String> objects_collected;    //keeps track of the objects that have been collected by storing session_ids
     private ArrayList<Coordinate> player_coordinates;
+    private ArrayList<Integer> picked_up_pickupables;       //keeps track of the objects that have been collected by storing session_ids
+    private HashMap<String, ArrayList<Integer>> players_to_remind;   //stores arrays of pickupable_ids that need to be sent to session_ids as the keys
+
 
 
     //number of players currently playing in the game
@@ -76,7 +78,7 @@ public class Game {
 
     //the names of all available maps
     public String[] map_names = {"beachScene", "ChocolateScene", "CityScene", "forestScene", "HalloweenScene", "legoScene", "RacingScene",  "WinterScene"};
-    public int[] num_collectables = {10, 10, 10, 10, 10, 10, 10, 10}; //number of collectables in all available maps. Correspands to map_names
+    public int[] num_collectables = {10, 10, 10, 10, 10, 10, 10, 10}; //number of collectables in all available maps. Corresponds to map_names
     //stores spawn coordinates for all maps so that when player first joins, they can update their coordinates
     public Coordinate[][] spawn_coordinates;
 
@@ -111,8 +113,9 @@ public class Game {
 
 
         players = new ArrayList<Player>();
-        objects_collected = new ArrayList<String>();
+        picked_up_pickupables = new ArrayList<Integer>();
         player_coordinates = new ArrayList<Coordinate>();
+        players_to_remind = new HashMap<String, ArrayList<Integer>>();
     }
 
     //starts the wait for the game to start
@@ -297,11 +300,7 @@ public class Game {
     //returns the player's spawn coordinates in string format
     public String getSpawnCoordinates(String session_id)
     {
-        System.out.println("getSpawnCoordinates("+session_id+")");
-
         int cur_player_index = getPlayerIndex(session_id);
-
-        System.out.println("Player index: "+cur_player_index);
 
         //gets map index
         int map_index = -1;
@@ -314,24 +313,46 @@ public class Game {
 
         }
 
-        System.out.println("max index: "+map_index);
-
         //couldn't find map, so stop
         if(map_index==-1)
             return "";
 
-        System.out.println("spawn_coord len: "+spawn_coordinates.length);
-
-        System.out.println("spawn_coord_len2: "+spawn_coordinates[map_index].length);
-
-
         //gets string version of the coordinates
         System.out.println(spawn_coordinates[map_index][cur_player_index]);
         String str_coor = spawn_coordinates[map_index][cur_player_index].toString();
-        System.out.println("Coord: "+str_coor);
-
 
         return str_coor;
+    }
+
+
+    public void addPickupable(String session_id, int pickupable_id)
+    {
+        picked_up_pickupables.add(pickupable_id);
+
+        //adds session_ids to update
+        for(int x = 0; x < num_players; x++)
+        {
+            String cur_sess_id = players.get(x).getSessionID();
+
+            //skip if is current player
+            if(cur_sess_id == session_id)
+                continue;
+
+
+            //if player doesn't already have items to be told about, create new list
+            if(players_to_remind.get(cur_sess_id) == null) {
+                players_to_remind.put(cur_sess_id, new ArrayList<Integer>());
+            }
+
+
+            players_to_remind.get(cur_sess_id).add(pickupable_id);
+        }
+    }
+
+    //returns integers of pickupable ids that have been picked up since specified player has last checked
+    public ArrayList<Integer> getNewPickupablesForPlayer(String session_id)
+    {
+        return players_to_remind.get(session_id);
     }
 
 

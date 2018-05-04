@@ -11,6 +11,7 @@ public class GameServer {
     //private ArrayList<Long> player_last_request = new ArrayList<Long>();
     private HashMap<String, Long> player_last_request = new HashMap<String, Long>();
 
+
     //keeps track of game_ids
     private int game_counter = 0;
 
@@ -104,6 +105,13 @@ public class GameServer {
                     //[1] = game_id
                     //[2] = player's current coordinates as string
                     to_return = "106"+getCoordinates(values[0], Integer.parseInt(values[1]), values[2]);
+                    break;
+                case "/pickedup":
+                    //[0] = session_id
+                    //[1] = game_id
+                    //[2] = pickupable_id
+                    to_return = "107"+pickedUp(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]));
+                    break;
                 default:
                     break;
             }
@@ -319,6 +327,22 @@ public class GameServer {
         System.out.println("joinGame() returning: "+to_return);
 
         return to_return;
+    }
+
+    public String pickedUp(String session_id, int game_id, int pickupable_id)
+    {
+        //update last request time for current player
+        updatePlayerRequestTime(session_id);
+
+        Game game = getGameById(game_id);
+
+        game.addPickupable(session_id, pickupable_id);
+
+        ArrayList<Integer> new_pickupables = game.getNewPickupablesForPlayer(session_id);
+
+        System.out.println("New pickupables: "+new_pickupables.toString());
+
+        return "";
     }
 
 
