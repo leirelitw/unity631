@@ -355,6 +355,11 @@ public class Game {
         return players_to_remind.get(session_id);
     }
 
+    public void removeNewPickupablesForPlayer(String session_id)
+    {
+        players_to_remind.remove(session_id);
+    }
+
 
 
     //returns whether or not player was added successfully

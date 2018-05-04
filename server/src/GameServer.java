@@ -255,7 +255,19 @@ public class GameServer {
 
             //joins array into string
             to_return += "&";
-            to_return += String.join(",", pickupables_string);
+            //to_return += String.join(",", pickupables_string);
+            StringBuilder builder = new StringBuilder();
+            for(int x = 0; x < pickupables_string.length - 1; x++) {
+                builder.append(pickupables_string[x]+",");
+            }
+
+            //add the last element since it wasn't considered in the for loop
+            builder.append(pickupables_string[pickupables_string.length-1]);
+
+            to_return += builder.toString();
+
+            //removes reminders about the newly picked up pickupables
+            game.removeNewPickupablesForPlayer(session_id);
         }
 
         return to_return;

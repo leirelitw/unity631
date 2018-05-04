@@ -410,7 +410,12 @@ public class GameHandler : MonoBehaviour {
 
         float[] to_return = new float[6];
         for (int j = 0; j < str_coor.Length; j++)
-            to_return[j] = float.Parse(str_coor[j]);
+        {
+            if (str_coor[j].Equals("") == false)
+                to_return[j] = float.Parse(str_coor[j]);
+            else
+                to_return[j] = 0;
+        }
 
         return to_return;
     }
