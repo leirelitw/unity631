@@ -115,6 +115,7 @@ class RequestHandler implements Runnable
 
                 String response = game_server.processRequest(line);
                 writer.println(response);
+                writer.flush();
 
                 // Body of our response
                 //System.out.println("-- Sending out --");

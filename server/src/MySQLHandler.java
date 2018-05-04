@@ -167,7 +167,7 @@ public class MySQLHandler {
                 return false;
 
         }catch(Exception ex){
-
+            System.out.println("Register EX: "+ex);
         }
 
         return false;

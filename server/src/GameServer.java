@@ -256,6 +256,7 @@ public class GameServer {
         //update last request time for current player
         updatePlayerRequestTime(session_id);
 
+
         //gets player associated with provided session_id
         Player player = getPlayer(session_id);
 
@@ -407,10 +408,10 @@ public class GameServer {
         boolean email_exists = sql_handler.doesEmailExist(email);
 
         if(user_exists)
-            return "Error: Username already exists";
+            return "error";
 
         if (email_exists)
-            return "Error: Email already exists";
+            return "error";
 
 
         boolean success = sql_handler.register(username, email, password);
@@ -418,7 +419,7 @@ public class GameServer {
         if(success)
             return login(username, password);
         else
-            return "Error: Couldn't register";
+            return "error";
     }
 
     //returns true if successful, which means if the player doesn't already exist
