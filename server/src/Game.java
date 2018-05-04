@@ -340,9 +340,7 @@ public class Game {
 
 
             //if player doesn't already have items to be told about, create new list
-            if(players_to_remind.get(cur_sess_id) == null) {
-                players_to_remind.put(cur_sess_id, new ArrayList<Integer>());
-            }
+            players_to_remind.putIfAbsent(cur_sess_id, new ArrayList<Integer>());
 
 
             players_to_remind.get(cur_sess_id).add(pickupable_id);
