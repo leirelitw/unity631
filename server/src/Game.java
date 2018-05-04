@@ -135,15 +135,15 @@ public class Game {
 
 
                         //waits for 2 players to be in game before it starts count down
-//                        while(num_players<min_num_players){
-//                            //System.out.println("Waiting for enough players to join");
-//
-//                            //resets timer
-//                            time_to_wait = time_wait;
-//
-//                            TimeUnit.SECONDS.sleep(1);
-//
-//                        }
+                        while(num_players<min_num_players){
+                            //System.out.println("Waiting for enough players to join");
+
+                            //resets timer
+                            time_to_wait = time_wait;
+
+                            TimeUnit.SECONDS.sleep(1);
+
+                        }
 
                         time_to_wait--;
                         TimeUnit.SECONDS.sleep(1);
@@ -340,7 +340,9 @@ public class Game {
 
 
             //if player doesn't already have items to be told about, create new list
-            players_to_remind.putIfAbsent(cur_sess_id, new ArrayList<Integer>());
+            if(players_to_remind.get(cur_sess_id) == null) {
+                players_to_remind.put(cur_sess_id, new ArrayList<Integer>());
+            }
 
 
             players_to_remind.get(cur_sess_id).add(pickupable_id);
