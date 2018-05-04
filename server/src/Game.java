@@ -490,12 +490,10 @@ public class Game {
         start_coordinates[4] = new int[]{778, 60, 465};
         //legoScene
         start_coordinates[5] = new int[]{843, 50, 787};
-
         //RacingScene
         start_coordinates[6] = new int[]{-375, 100, -430};
-
         //WinterScene
-        start_coordinates[7] = new int[]{387, 100, 58};
+        start_coordinates[7] = new int[]{355, 100, 58};
 
         //initializes initial spawning positions
         spawn_coordinates = new Coordinate[map_names.length][max_num_players];
@@ -516,7 +514,6 @@ public class Game {
             for(int j = 0; j < max_num_players; j++) {
                 map[j] = new Coordinate(x, y, z, 0, 0, 0);
                 x += 10;
-                z += 10;
             }
             System.out.println("Added spawn coordinates for map"+i);
             spawn_coordinates[i] = map;
