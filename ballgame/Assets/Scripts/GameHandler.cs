@@ -175,13 +175,18 @@ public class GameHandler : MonoBehaviour {
         string[] temp =  response.response.Split('&');
 
         string coordinates_string = temp[0];
-        string pickupable_ids = temp[1];
 
-        //removes pickupables
-        float[] pickupables = splitCoordinate(pickupable_ids);
-        for(int x = 0; x < pickupables.Length; x++)
+        //if server returned pickupable ids, add them to ones picked up since they were picked up by other players
+        if (temp.Length >= 2)
         {
-            add_pickupable_pickup((int)pickupables[x]);
+            string pickupable_ids = temp[1];
+
+            //removes pickupables
+            float[] pickupables = splitCoordinate(pickupable_ids);
+            for (int x = 0; x < pickupables.Length; x++)
+            {
+                add_pickupable_pickup((int)pickupables[x]);
+            }
         }
 
 

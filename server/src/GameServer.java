@@ -237,8 +237,28 @@ public class GameServer {
 
         game.updatePlayerCoordinates(session_id, my_coordinates);
 
+        String to_return = "";
+
         //gets all coordinates in string format except for the current player
-        return game.getPlayerCoordinatesExcept(session_id);
+        to_return += game.getPlayerCoordinatesExcept(session_id);
+
+
+
+        //sends pickupable ids
+        ArrayList<Integer> new_pickupables = game.getNewPickupablesForPlayer(session_id);
+
+        if(new_pickupables != null) {
+            //converts arraylist of integers to array of strings
+            String[] pickupables_string = new String[new_pickupables.size()];
+            for (int x = 0; x < new_pickupables.size(); x++)
+                pickupables_string[x] = Integer.toString(new_pickupables.get(x));
+
+            //joins array into string
+            to_return += "&";
+            to_return += String.join(",", pickupables_string);
+        }
+
+        return to_return;
     }
 
     //returns the amount of time left to wait and amount of time left in game
