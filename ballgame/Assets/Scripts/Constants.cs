@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Constants {
 	
 	// Constants
@@ -16,15 +18,22 @@ public class Constants {
     public static readonly short response_joingame = 104;
     public static readonly short response_gametimer = 105;
     public static readonly short response_getcoor = 106;
+    public static readonly short response_pickedup = 107;
     
 	
 	// Other
 	public static readonly string IMAGE_RESOURCES_PATH = "Images/";
 	public static readonly string PREFAB_RESOURCES_PATH = "Prefabs/";
 	public static readonly string TEXTURE_RESOURCES_PATH = "Textures/";
-	
-	// GUI Window IDs
-	public enum GUI_ID {
+
+
+
+    //keeps a list of picked up pickupables
+    public static List<int> picked_up_pickupables = new List<int>();
+
+
+    // GUI Window IDs
+    public enum GUI_ID {
 		Login
 	};
 

@@ -23,6 +23,8 @@ public class GameHandler : MonoBehaviour {
     private playerController player_controller;
     private List<GameObject> other_players;
 
+    
+
     long frame_counter = 0;
     
     //these are here because the socket closes up if too many requests are sent without waiting for a response
@@ -169,8 +171,27 @@ public class GameHandler : MonoBehaviour {
     {
         Debug.Log("ResponseCoordinates(): " + response.response);
 
+        //separates coordinates from pickupable ids
+        string[] temp =  response.response.Split('&');
+
+        string coordinates_string = temp[0];
+
+        //if server returned pickupable ids, add them to ones picked up since they were picked up by other players
+        if (temp.Length >= 2)
+        {
+            string pickupable_ids = temp[1];
+
+            //removes pickupables
+            float[] pickupables = splitCoordinate(pickupable_ids);
+            for (int x = 0; x < pickupables.Length; x++)
+            {
+                add_pickupable_pickup((int)pickupables[x]);
+            }
+        }
+
+
         //Response response;
-        float[][] coordinates = splitCoordinatesPlayers(response.response);
+        float[][] coordinates = splitCoordinatesPlayers(coordinates_string);
 
 
         //iterates through other players
@@ -199,14 +220,31 @@ public class GameHandler : MonoBehaviour {
         trying_send_coordinates = false;
 
 
+        
+
+
         yield return 0;
     }
+
+    //adds pickupable_id to the global list of picked up pickupables
+    private void add_pickupable_pickup(int pickupable_id)
+    {
+        //if hadn't already been picked up
+        if (Constants.picked_up_pickupables.Contains(pickupable_id) == false)
+            Constants.picked_up_pickupables.Add(pickupable_id);
+            
+    }
     
+
+
+
+
+
     
 
     // Update is called once per frame
-    void Update () {
-
+    void Update ()
+    {
         //if player isn't part of a game
         if (player_handler.getGameID() == -1)
         {
@@ -217,6 +255,9 @@ public class GameHandler : MonoBehaviour {
         //if player is part of a game
         else
         {
+
+            
+
             //every second
             if (frame_counter % 3 == 0)
             {
@@ -235,6 +276,13 @@ public class GameHandler : MonoBehaviour {
 
         frame_counter++;
     }
+
+
+
+
+
+
+
 
     //retrieves game data like amount of seconds left to wait, seconds left in the game, etc. 
     private void getGameTimer()
@@ -362,7 +410,12 @@ public class GameHandler : MonoBehaviour {
 
         float[] to_return = new float[6];
         for (int j = 0; j < str_coor.Length; j++)
-            to_return[j] = float.Parse(str_coor[j]);
+        {
+            if (str_coor[j].Equals("") == false)
+                to_return[j] = float.Parse(str_coor[j]);
+            else
+                to_return[j] = 0;
+        }
 
         return to_return;
     }

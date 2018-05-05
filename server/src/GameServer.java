@@ -11,6 +11,7 @@ public class GameServer {
     //private ArrayList<Long> player_last_request = new ArrayList<Long>();
     private HashMap<String, Long> player_last_request = new HashMap<String, Long>();
 
+
     //keeps track of game_ids
     private int game_counter = 0;
 
@@ -104,6 +105,13 @@ public class GameServer {
                     //[1] = game_id
                     //[2] = player's current coordinates as string
                     to_return = "106"+getCoordinates(values[0], Integer.parseInt(values[1]), values[2]);
+                    break;
+                case "/pickedup":
+                    //[0] = session_id
+                    //[1] = game_id
+                    //[2] = pickupable_id
+                    to_return = "107"+pickedUp(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]));
+                    break;
                 default:
                     break;
             }
@@ -229,8 +237,40 @@ public class GameServer {
 
         game.updatePlayerCoordinates(session_id, my_coordinates);
 
+        String to_return = "";
+
         //gets all coordinates in string format except for the current player
-        return game.getPlayerCoordinatesExcept(session_id);
+        to_return += game.getPlayerCoordinatesExcept(session_id);
+
+
+
+        //sends pickupable ids
+        ArrayList<Integer> new_pickupables = game.getNewPickupablesForPlayer(session_id);
+
+        if(new_pickupables != null) {
+            //converts arraylist of integers to array of strings
+            String[] pickupables_string = new String[new_pickupables.size()];
+            for (int x = 0; x < new_pickupables.size(); x++)
+                pickupables_string[x] = Integer.toString(new_pickupables.get(x));
+
+            //joins array into string
+            to_return += "&";
+            //to_return += String.join(",", pickupables_string);
+            StringBuilder builder = new StringBuilder();
+            for(int x = 0; x < pickupables_string.length - 1; x++) {
+                builder.append(pickupables_string[x]+",");
+            }
+
+            //add the last element since it wasn't considered in the for loop
+            builder.append(pickupables_string[pickupables_string.length-1]);
+
+            to_return += builder.toString();
+
+            //removes reminders about the newly picked up pickupables
+            game.removeNewPickupablesForPlayer(session_id);
+        }
+
+        return to_return;
     }
 
     //returns the amount of time left to wait and amount of time left in game
@@ -255,6 +295,7 @@ public class GameServer {
 
         //update last request time for current player
         updatePlayerRequestTime(session_id);
+
 
         //gets player associated with provided session_id
         Player player = getPlayer(session_id);
@@ -318,6 +359,22 @@ public class GameServer {
         System.out.println("joinGame() returning: "+to_return);
 
         return to_return;
+    }
+
+    public String pickedUp(String session_id, int game_id, int pickupable_id)
+    {
+        //update last request time for current player
+        updatePlayerRequestTime(session_id);
+
+        Game game = getGameById(game_id);
+
+        game.addPickupable(session_id, pickupable_id);
+
+        ArrayList<Integer> new_pickupables = game.getNewPickupablesForPlayer(session_id);
+
+        System.out.println("New pickupables: "+new_pickupables.toString());
+
+        return "";
     }
 
 
@@ -407,10 +464,10 @@ public class GameServer {
         boolean email_exists = sql_handler.doesEmailExist(email);
 
         if(user_exists)
-            return "Error: Username already exists";
+            return "error";
 
         if (email_exists)
-            return "Error: Email already exists";
+            return "error";
 
 
         boolean success = sql_handler.register(username, email, password);
@@ -418,7 +475,7 @@ public class GameServer {
         if(success)
             return login(username, password);
         else
-            return "Error: Couldn't register";
+            return "error";
     }
 
     //returns true if successful, which means if the player doesn't already exist
