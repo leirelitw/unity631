@@ -139,6 +139,18 @@ public class playerController : MonoBehaviour
                         AS[10].Play();
                     }
                     break;
+                case "ChocolateScene":
+                    if (!AS[11].isPlaying)
+                    {
+                        AS[11].Play();
+                    }
+                    break;
+                case "CityScene":
+                    if (!AS[12].isPlaying)
+                    {
+                        AS[12].Play();
+                    }
+                    break;
             }
         }
     }
