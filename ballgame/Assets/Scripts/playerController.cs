@@ -161,7 +161,6 @@ public class playerController : MonoBehaviour
         }
     }
 
-
     //sets whether player is allowed to move
     public void allowMovement(bool movement)
     {
