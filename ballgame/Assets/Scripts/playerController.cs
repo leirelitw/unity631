@@ -127,6 +127,12 @@ public class playerController : MonoBehaviour
                         AS[8].Play();
                     }
                     break;
+                case "RacingScene":
+                    if (!AS[8].isPlaying)
+                    {
+                        AS[8].Play();
+                    }
+                    break;
                 case "WinterScene":
                     if (!AS[9].isPlaying)
                     {

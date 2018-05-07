@@ -8,6 +8,7 @@ public class BallJump : MonoBehaviour {
 
     public float jumpPower = 5f;
     public float lowJumpMultiplier = 1f;
+    public AudioSource jumpsound;
 
     private Rigidbody rigidBody;
     private bool jump;
@@ -49,6 +50,10 @@ public class BallJump : MonoBehaviour {
         {
             rigidBody.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
             // rigidBody.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);   // PoHung's version
+            if (!jumpsound.isPlaying)
+            {
+                jumpsound.Play();
+            }
         }
     }
 
