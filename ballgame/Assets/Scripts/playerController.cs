@@ -127,6 +127,12 @@ public class playerController : MonoBehaviour
                         AS[8].Play();
                     }
                     break;
+                case "RacingScene":
+                    if (!AS[8].isPlaying)
+                    {
+                        AS[8].Play();
+                    }
+                    break;
                 case "WinterScene":
                     if (!AS[9].isPlaying)
                     {
@@ -139,10 +145,21 @@ public class playerController : MonoBehaviour
                         AS[10].Play();
                     }
                     break;
+                case "ChocolateScene":
+                    if (!AS[11].isPlaying)
+                    {
+                        AS[11].Play();
+                    }
+                    break;
+                case "CityScene":
+                    if (!AS[12].isPlaying)
+                    {
+                        AS[12].Play();
+                    }
+                    break;
             }
         }
     }
-
 
     //sets whether player is allowed to move
     public void allowMovement(bool movement)
