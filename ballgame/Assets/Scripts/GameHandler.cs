@@ -68,6 +68,8 @@ public class GameHandler : MonoBehaviour {
             if (other_player != null)
             {
                 other_players.Add(other_player);
+                //hide them to begin with
+                other_player.SetActive(false);
             }
             else
                 break;
@@ -201,15 +203,15 @@ public class GameHandler : MonoBehaviour {
             GameObject other_player = other_players[player_index];
 
             //if other player has been hidden (meaning they are a new player), then unhide them
-            //if (other_player.activeSelf == false)
-            //    other_player.SetActive(false);
+            if (other_player.activeSelf == false)
+                other_player.SetActive(true);
 
-            float x = coordinates[0][0];
-            float y = coordinates[0][1];
-            float z = coordinates[0][2];
-            float rotate_x = coordinates[0][3];
-            float rotate_y = coordinates[0][4];
-            float rotate_z = coordinates[0][5];
+            float x = coordinates[player_index][0];
+            float y = coordinates[player_index][1];
+            float z = coordinates[player_index][2];
+            //float rotate_x = coordinates[player_index][3];
+            //float rotate_y = coordinates[player_index][4];
+            //float rotate_z = coordinates[player_index][5];
 
 
 
@@ -305,41 +307,21 @@ public class GameHandler : MonoBehaviour {
     private void sendCoordinates()
     {
         trying_send_coordinates = true;
-
-        float[] player_coor = new float[6];
+        
         float[] player_ball_coor = new float[6];
 
-        player_coor[0] = player.transform.position.x;
-        player_coor[1] = player.transform.position.y;
-        player_coor[2] = player.transform.position.z;
-        player_coor[3] = player.transform.eulerAngles.x;
-        player_coor[4] = player.transform.eulerAngles.y;
-        player_coor[5] = player.transform.eulerAngles.z;
+        float x = (float)Math.Round(player_ball.transform.position.x, 2);
+        float y = (float)Math.Round(player_ball.transform.position.y, 2);
+        float z = (float)Math.Round(player_ball.transform.position.z, 2);
+        //float rotate_x = (float)Math.Round(player_ball.transform.eulerAngles.x, 0);
+        //float rotate_y = (float)Math.Round(player_ball.transform.eulerAngles.y, 0);
+        //float rotate_z = (float)Math.Round(player_ball.transform.eulerAngles.z, 0);
 
-        player_ball_coor[0] = player_ball.transform.position.x;
-        player_ball_coor[1] = player_ball.transform.position.y;
-        player_ball_coor[2] = player_ball.transform.position.z;
-        player_ball_coor[3] = player_ball.transform.eulerAngles.x;
-        player_ball_coor[4] = player_ball.transform.eulerAngles.y;
-        player_ball_coor[5] = player_ball.transform.eulerAngles.z;
 
-        //float x = player_coor[0] + player_ball_coor[0];
-        //float y = player_coor[1] + player_ball_coor[1];
-        //float z = player_coor[2] + player_ball_coor[2];
-        //float rotate_x = player_coor[3] + player_ball_coor[3];
-        //float rotate_y = player_coor[4] + player_ball_coor[4];
-        //float rotate_z = player_coor[5] + player_ball_coor[5];
+        //string to_send = x + "," + y + "," + z+ "," + rotate_x+ "," + rotate_y + "," + rotate_z;
+        string to_send = x + "," + y + "," + z;
 
-        float x = player_ball_coor[0];
-        float y = player_ball_coor[1];
-        float z = player_ball_coor[2];
-        float rotate_x = player_ball_coor[3];
-        float rotate_y = player_ball_coor[4];
-        float rotate_z = player_ball_coor[5];
-
-        string to_send = x + "," + y + "," + z+ "," + rotate_x+ "," + rotate_y + "," + rotate_z;
-
-        string url = "/getcoor?session_id=" + player_handler.getSessionID() + "&game_id=" + player_handler.getGameID() + "&player_coor=" + to_send;
+        string url = "/getcoor?s_id=" + player_handler.getSessionID() + "&game_id=" + player_handler.getGameID() + "&coor=" + to_send;
 
 
         try {

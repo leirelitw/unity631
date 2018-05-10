@@ -24,6 +24,8 @@ class SimpleServer {
         try {
             server_socket = new ServerSocket(1299);
             System.out.println("Opened server socket " + 1299);
+
+
             while (true) {
 
                 // keeps listening for new clients, one at a time
