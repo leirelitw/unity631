@@ -204,12 +204,12 @@ public class GameHandler : MonoBehaviour {
             //if (other_player.activeSelf == false)
             //    other_player.SetActive(false);
 
-            float x = coordinates[0][0];
-            float y = coordinates[0][1];
-            float z = coordinates[0][2];
-            float rotate_x = coordinates[0][3];
-            float rotate_y = coordinates[0][4];
-            float rotate_z = coordinates[0][5];
+            float x = coordinates[player_index][0];
+            float y = coordinates[player_index][1];
+            float z = coordinates[player_index][2];
+            float rotate_x = coordinates[player_index][3];
+            float rotate_y = coordinates[player_index][4];
+            float rotate_z = coordinates[player_index][5];
 
 
 
