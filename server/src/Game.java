@@ -28,6 +28,10 @@ public class Game {
             setCoordinate(x, y, z, rotate_x, rotate_y, rotate_z);
         }
 
+        public Coordinate(float x, float y, float z){
+            setCoordinate(x, y, z);
+        }
+
         public void setCoordinate(float new_x, float new_y, float new_z, float new_rotate_x, float new_rotate_y, float new_rotate_z){
             this.x = new_x;
             this.y = new_y;
@@ -37,10 +41,16 @@ public class Game {
             this.rotate_z = new_rotate_z;
         }
 
+        public void setCoordinate(float new_x, float new_y, float new_z){
+            this.x = new_x;
+            this.y = new_y;
+            this.z = new_z;
+        }
+
         public String toString()
         {
-            return Float.toString(x)+","+Float.toString(y)+","+Float.toString(z)+","+Float.toString(rotate_x)
-                    +","+Float.toString(rotate_y)+","+Float.toString(rotate_z);
+            //return Float.toString(x)+","+Float.toString(y)+","+Float.toString(z)+","+Float.toString(rotate_x) +","+Float.toString(rotate_y)+","+Float.toString(rotate_z);
+            return Float.toString(x)+","+Float.toString(y)+","+Float.toString(z);
         }
     }
 
@@ -239,11 +249,12 @@ public class Game {
             float x = Float.parseFloat(split_str[0]);
             float y = Float.parseFloat(split_str[1]);
             float z = Float.parseFloat(split_str[2]);
-            float rotate_x = Float.parseFloat(split_str[3]);
-            float rotate_y = Float.parseFloat(split_str[4]);
-            float rotate_z = Float.parseFloat(split_str[5]);
+            //float rotate_x = Float.parseFloat(split_str[3]);
+            //float rotate_y = Float.parseFloat(split_str[4]);
+            //float rotate_z = Float.parseFloat(split_str[5]);
 
-            coor.setCoordinate(x, y, z, rotate_x, rotate_y, rotate_z);
+            //coor.setCoordinate(x, y, z, rotate_x, rotate_y, rotate_z);
+            coor.setCoordinate(x, y, z);
         } catch(Exception ex){
 
         }

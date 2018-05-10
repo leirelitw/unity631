@@ -68,6 +68,8 @@ public class GameHandler : MonoBehaviour {
             if (other_player != null)
             {
                 other_players.Add(other_player);
+                //hide them to begin with
+                other_player.SetActive(false);
             }
             else
                 break;
@@ -201,15 +203,15 @@ public class GameHandler : MonoBehaviour {
             GameObject other_player = other_players[player_index];
 
             //if other player has been hidden (meaning they are a new player), then unhide them
-            //if (other_player.activeSelf == false)
-            //    other_player.SetActive(false);
+            if (other_player.activeSelf == false)
+                other_player.SetActive(true);
 
             float x = coordinates[player_index][0];
             float y = coordinates[player_index][1];
             float z = coordinates[player_index][2];
-            float rotate_x = coordinates[player_index][3];
-            float rotate_y = coordinates[player_index][4];
-            float rotate_z = coordinates[player_index][5];
+            //float rotate_x = coordinates[player_index][3];
+            //float rotate_y = coordinates[player_index][4];
+            //float rotate_z = coordinates[player_index][5];
 
 
 
@@ -308,15 +310,16 @@ public class GameHandler : MonoBehaviour {
         
         float[] player_ball_coor = new float[6];
 
-        float x = (float)Math.Round(player_ball.transform.position.x, 1);
-        float y = (float)Math.Round(player_ball.transform.position.y, 1);
-        float z = (float)Math.Round(player_ball.transform.position.z, 1);
-        float rotate_x = (float)Math.Round(player_ball.transform.eulerAngles.x, 1);
-        float rotate_y = (float)Math.Round(player_ball.transform.eulerAngles.y, 1);
-        float rotate_z = (float)Math.Round(player_ball.transform.eulerAngles.z, 1);
-        
+        float x = (float)Math.Round(player_ball.transform.position.x, 2);
+        float y = (float)Math.Round(player_ball.transform.position.y, 2);
+        float z = (float)Math.Round(player_ball.transform.position.z, 2);
+        //float rotate_x = (float)Math.Round(player_ball.transform.eulerAngles.x, 0);
+        //float rotate_y = (float)Math.Round(player_ball.transform.eulerAngles.y, 0);
+        //float rotate_z = (float)Math.Round(player_ball.transform.eulerAngles.z, 0);
 
-        string to_send = x + "," + y + "," + z+ "," + rotate_x+ "," + rotate_y + "," + rotate_z;
+
+        //string to_send = x + "," + y + "," + z+ "," + rotate_x+ "," + rotate_y + "," + rotate_z;
+        string to_send = x + "," + y + "," + z;
 
         string url = "/getcoor?s_id=" + player_handler.getSessionID() + "&game_id=" + player_handler.getGameID() + "&coor=" + to_send;
 
