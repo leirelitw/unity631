@@ -7,8 +7,8 @@ public class playerController : MonoBehaviour
 {
     // public Text countText;
     // public Text winText;
-    public Text velocityText;
-    public Text accelerationText;
+   // public Text velocityText;
+   // public Text accelerationText;
     public string typeOfBall;
 
     public Camera camera;
@@ -46,7 +46,7 @@ public class playerController : MonoBehaviour
         count = 0;
         //SetCountText();
         // winText.text = "";
-        velocityText.text = "Velocity: " + rigidBody.velocity;
+        //velocityText.text = "Velocity: " + rigidBody.velocity;
 
         switch (typeOfBall)
         {
@@ -101,13 +101,13 @@ public class playerController : MonoBehaviour
         Vector3 movement = (forwardDirection * acceleration) + (sidewaysDirection * acceleration);// allows moving with wasd normally with camera facing any direction.
 
         rigidBody.AddForce(movement, ForceMode.Acceleration);//adds force to ball so it can move      
-        accelerationText.text = "Accelration: " + movement; // remove in actual game, used for testing
+        //accelerationText.text = "Accelration: " + movement; // remove in actual game, used for testing
 
 
         //relativeForce doesn't work for ball due to rotation.
 
 
-        // prevents objectsthis script is attached from going beyond a certain velocity.
+        // prevents objects this script is attached from going beyond a certain velocity.
         rigidBody.velocity = new Vector3
             (
                 Mathf.Clamp(rigidBody.velocity.x, -maxSpeed, maxSpeed),
@@ -116,8 +116,8 @@ public class playerController : MonoBehaviour
 
                 Mathf.Clamp(rigidBody.velocity.z, -maxSpeed, maxSpeed)
             );
-        velocityText.text = "Velocity: " + rigidBody.velocity.magnitude;
-        if (rigidBody.velocity.magnitude >= 1 && rigidBody.velocity.y == 0)
+        //velocityText.text = "Velocity: " + rigidBody.velocity.magnitude;
+        if (rigidBody.velocity.magnitude >= 1 && rigidBody.velocity.y == 0)//Starts up scenes music. Basically background noise
         {
             switch (sceneName)
             {

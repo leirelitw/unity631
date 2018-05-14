@@ -26,6 +26,11 @@ public class CollisionHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // should check for if error occurs
+        countText = GameObject.Find("countText").GetComponent<Text>();
+        winText = GameObject.Find("winText").GetComponent<Text>();
+        pointCollect = GameObject.Find("pointCounterText").GetComponent<Text>();
+
 
         main = GameObject.Find("MainObject");
         con_man = main.GetComponent<ConnectionManager>();
@@ -43,10 +48,11 @@ public class CollisionHandler : MonoBehaviour
     }
 
 
+    //Note reason this is run when it looks like your diving into water is because the ocean collider is small. Could fix by making it larger.
     private void OnTriggerExit(Collider other)
     {
         // for when user enters water
-        if (other.gameObject.CompareTag("WaterTag"))
+        if (other.gameObject.CompareTag("WaterTag")) // don't want to delete ocean so thats why its here plus want it on exit.
         {
             pointCollect.color = Color.white;
             DisplayPointCollected("-1");
@@ -66,7 +72,7 @@ public class CollisionHandler : MonoBehaviour
 
 
         //item tags colliding with
-        string[] tags = new string[] { "Red", "Yellow", "Green", "Pink", "Blue", "Purple", "Black", "Zombie", "WaterTag", "RainbowCube" };
+        string[] tags = new string[] { "Red", "Yellow", "Green", "Pink", "Blue", "Purple", "Black", "Zombie", "RainbowCube" };
         //colors of the text popup
         Color[] colors = new Color[] { Color.red, Color.yellow, Color.green, Color.magenta, Color.blue, Color.cyan, Color.black, Color.black, Color.white, Color.red };
         //points to add
