@@ -27,9 +27,9 @@ public class CollisionHandler : MonoBehaviour
     void Start()
     {
         // should check for if error occurs
-        countText = GameObject.Find("countText").GetComponent<Text>();
-        winText = GameObject.Find("winText").GetComponent<Text>();
-        pointCollect = GameObject.Find("pointCounterText").GetComponent<Text>();
+        //countText = GameObject.Find("countText").GetComponent<Text>();
+        //winText = GameObject.Find("winText").GetComponent<Text>();
+        //pointCollect = GameObject.Find("pointCounterText").GetComponent<Text>();
 
 
         main = GameObject.Find("MainObject");
@@ -49,7 +49,7 @@ public class CollisionHandler : MonoBehaviour
 
 
     //Note reason this is run when it looks like your diving into water is because the ocean collider is small. Could fix by making it larger.
-    private void OnTriggerExit(Collider other)
+    /**private void OnTriggerExit(Collider other)
     {
         // for when user enters water
         if (other.gameObject.CompareTag("WaterTag")) // don't want to delete ocean so thats why its here plus want it on exit.
@@ -62,7 +62,7 @@ public class CollisionHandler : MonoBehaviour
             countText.text = "Count: " + count.ToString();
         }
         countText.text = "Count: " + count.ToString();
-    }
+    }**/
 
     void OnTriggerEnter(Collider other)
     {
@@ -72,7 +72,7 @@ public class CollisionHandler : MonoBehaviour
 
 
         //item tags colliding with
-        string[] tags = new string[] { "Red", "Yellow", "Green", "Pink", "Blue", "Purple", "Black", "Zombie", "RainbowCube" };
+        string[] tags = new string[] { "Red", "Yellow", "Green", "Pink", "Blue", "Purple", "Black", "Zombie", "WaterTag", "RainbowCube" };
         //colors of the text popup
         Color[] colors = new Color[] { Color.red, Color.yellow, Color.green, Color.magenta, Color.blue, Color.cyan, Color.black, Color.black, Color.white, Color.red };
         //points to add
@@ -85,7 +85,10 @@ public class CollisionHandler : MonoBehaviour
         {
             if (other.gameObject.CompareTag(tags[x]))
             {
-                other.gameObject.SetActive(false);
+                //all objects but water disappear
+                if(other.gameObject.tag!="WaterTag")
+                    other.gameObject.SetActive(false);
+
                 pointCollect.color = colors[x];
 
                 if (points[x] > 0)

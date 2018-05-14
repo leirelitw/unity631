@@ -144,16 +144,16 @@ public class Game {
                     while (time_to_wait > 0) {
 
 
-                        //waits for 2 players to be in game before it starts count down
-                        while(num_players<min_num_players){
-                            //System.out.println("Waiting for enough players to join");
-
-                            //resets timer
-                            time_to_wait = time_wait;
-
-                            TimeUnit.SECONDS.sleep(1);
-
-                        }
+//                        //waits for 2 players to be in game before it starts count down
+//                        while(num_players<min_num_players){
+//                            //System.out.println("Waiting for enough players to join");
+//
+//                            //resets timer
+//                            time_to_wait = time_wait;
+//
+//                            TimeUnit.SECONDS.sleep(1);
+//
+//                        }
 
                         time_to_wait--;
                         TimeUnit.SECONDS.sleep(1);
