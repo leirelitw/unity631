@@ -8,14 +8,14 @@ public class playerController : MonoBehaviour
     // public Text countText;
     // public Text winText;
    // public Text velocityText;
-   // public Text accelerationText;
+    public Text accelerationText;
     public string typeOfBall;
 
     public Camera camera;
 
     Scene currentScene;
-    private float acceleration;
-    private float maxSpeed;
+    private float acceleration = 10;
+    private float maxSpeed = 10;
     private AudioSource[] AS;
     private int previousCount = 0;
     private string sceneName;
@@ -23,9 +23,12 @@ public class playerController : MonoBehaviour
     private Rigidbody rigidBody;
     private int count;
 
+    GameObject ballClasses;
+    private BallJump jumpObject;
+
     private bool allowed_movement = true;
 
-    public float jumpPower = 5f;// need to change value in BallJump class
+    private float jumpPower = 5f;// need to change value in BallJump class
 
 
     private void Awake()
@@ -35,6 +38,9 @@ public class playerController : MonoBehaviour
     }
     void Start()
     {
+        jumpObject = GetComponent<BallJump>();
+
+
         //Cursor.visible = false; allows removing cursor, though not implemented yet
         rigidBody = GetComponent<Rigidbody>();
         AS = GetComponents<AudioSource>();
@@ -44,10 +50,10 @@ public class playerController : MonoBehaviour
         sceneName = currentScene.name;
 
         count = 0;
-        //SetCountText();
-        // winText.text = "";
-        //velocityText.text = "Velocity: " + rigidBody.velocity;
 
+        ballClasses = GameObject.Find("AverageClassStat");
+        accelerationText.text = "Power: " + jumpPower;
+        /*
         switch (typeOfBall)
         {
             case "Speedy":
@@ -71,6 +77,7 @@ public class playerController : MonoBehaviour
                 maxSpeed = 14;
                 break;
         }
+        */
     }
 
     private void FixedUpdate()
@@ -83,7 +90,7 @@ public class playerController : MonoBehaviour
         {
             changeCursorVisibility();
         }
-
+        accelerationText.text = "Power: " + jumpPower;
         float moveHorizontal = Input.GetAxis("Horizontal"); // for x axis   a and d keys    -1 and 1
         float moveVertical = Input.GetAxis("Vertical"); // for z axis  s and w keys   -1 and 1
 
@@ -165,6 +172,37 @@ public class playerController : MonoBehaviour
     public void allowMovement(bool movement)
     {
         allowed_movement = movement;
+    }
+
+
+    public void chooseBallType(int choice)
+    {
+        switch (choice)
+        {
+            case 1://accelarative/turny
+                acceleration = 20;
+                jumpPower = 10;
+                maxSpeed = 14;
+                break;
+            case 2: //jump
+                acceleration = 10;
+                jumpPower = 10;
+                maxSpeed = 15;
+                break;
+            case 3://Speedy
+                acceleration = 25;
+                jumpPower = 10;
+                maxSpeed = 25;
+                break;
+            case 4://average
+                acceleration = 12;
+                jumpPower = 15;
+                maxSpeed = 18;
+                break;
+        }
+        Debug.Log("Noot");
+        ballClasses.gameObject.SetActive(false);
+        jumpObject.setJump(jumpPower);
     }
 
     void changeCursorVisibility()
