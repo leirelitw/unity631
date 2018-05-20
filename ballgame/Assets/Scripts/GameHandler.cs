@@ -22,8 +22,8 @@ public class GameHandler : MonoBehaviour {
     private GameObject player_ball;
     private playerController player_controller;
     private List<GameObject> other_players;
+    private AudioSource[] AS;
 
-    
 
     long frame_counter = 0;
     
@@ -53,6 +53,7 @@ public class GameHandler : MonoBehaviour {
 
         con_man = main.GetComponent<ConnectionManager>();
         player_handler = main.GetComponent<PlayerHandler>();
+        AS = GetComponents<AudioSource>();
 
         //gets sphere, the one the client controls
         //player = GameObject.Find("Player");
@@ -120,7 +121,10 @@ public class GameHandler : MonoBehaviour {
             player_controller.allowMovement(false);
             //Text waitTimer = wait_timer.transform.GetComponent<Text>();
             wait_timer.text = wait_time.ToString();
-
+            if (wait_time == 1 && !AS[0].isPlaying)
+            {
+                AS[0].Play();
+            }
         }
         //game has started, and call this ONCE
         else if(game_started==false)
