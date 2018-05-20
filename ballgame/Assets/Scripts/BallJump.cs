@@ -8,7 +8,8 @@ public class BallJump : MonoBehaviour {
 
     public float jumpPower = 5f;
     public float lowJumpMultiplier = 1f;// allows you to adjust how much force is applied down when low jump event occurs
-    public AudioSource jumpsound;
+
+    private AudioSource[] AS;
 
     private Rigidbody rigidBody;
     private bool jump;
@@ -18,6 +19,7 @@ public class BallJump : MonoBehaviour {
     {
         rigidBody = GetComponent<Rigidbody>();
         jumpDirection = Vector3.up;
+        AS = GetComponents<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -48,9 +50,9 @@ public class BallJump : MonoBehaviour {
         {
             rigidBody.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
             // rigidBody.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);   // PoHung's version
-            if (!jumpsound.isPlaying)
+            if (!AS[13].isPlaying)
             {
-                jumpsound.Play();
+                AS[13].Play();
             }
         }
     }

@@ -131,6 +131,14 @@ public class CollisionHandler : MonoBehaviour
         yield return 0;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            AS[14].Play(); // collission with player sound effect
+        }
+    }
+
     void DisplayPointCollected(string point)
     {
         pointCollect.text = point;
