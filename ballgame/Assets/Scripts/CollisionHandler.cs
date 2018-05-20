@@ -124,11 +124,16 @@ public class CollisionHandler : MonoBehaviour
     public IEnumerator ResponsePickedup(Response response)
     {
         Debug.Log("ResponsePickedup(): " + response.response);
-
-
-
-
+        
         yield return 0;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            AS[14].Play(); // collission with player sound effect
+        }
     }
 
     void DisplayPointCollected(string point)

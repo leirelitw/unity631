@@ -7,19 +7,19 @@ using UnityEngine;
 public class BallJump : MonoBehaviour {
 
     public float jumpPower = 5f;
-    public float lowJumpMultiplier = 1f;
-    public AudioSource jumpsound;
+    public float lowJumpMultiplier = 1f;// allows you to adjust how much force is applied down when low jump event occurs
+
+    private AudioSource[] AS;
 
     private Rigidbody rigidBody;
     private bool jump;
-    private bool nearObst;
     private Vector3 jumpDirection;
-    //public float jumpHigh = 20f;
 
-    private void Start()// seems this only runs at start of scene
+    private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         jumpDirection = Vector3.up;
+        AS = GetComponents<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -44,19 +44,25 @@ public class BallJump : MonoBehaviour {
         //  layer = ~layer; // want it to not check layer that is assigned to player object    
         //  nearObst = Physics.CheckSphere(transform.position, 1f, layer); // need this so players don't jump on each other
         // not even using nearObst  maybe implement
-
+        Debug.Log("Current Jump power is: " + jumpPower);
 
         if (Physics.Raycast(transform.position, -Vector3.up, 3) && jump)// && onGround onGround causes it to not jump as well. Like on non terrain objects
         {
             rigidBody.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
             // rigidBody.velocity = new Vector3(rb.velocity.x, jumpHigh, rb.velocity.z);   // PoHung's version
-            if (!jumpsound.isPlaying)
+            if (!AS[13].isPlaying)
             {
-                jumpsound.Play();
+                AS[13].Play();
             }
         }
     }
 
+
+    public void setJump(float power)
+    {
+        jumpPower = power;
+        Debug.Log("Jump power is: " + jumpPower);
+    }
 
     //Below code allows for jumping base on angle of surface jumped on. So jump off at 45 degree surface, go at a 45 degree angel
     /*

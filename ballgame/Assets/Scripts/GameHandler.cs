@@ -22,8 +22,8 @@ public class GameHandler : MonoBehaviour {
     private GameObject player_ball;
     private playerController player_controller;
     private List<GameObject> other_players;
+    private AudioSource[] AS;
 
-    
 
     long frame_counter = 0;
     
@@ -37,8 +37,7 @@ public class GameHandler : MonoBehaviour {
 
     private Boolean game_started = false;
     
-
-
+    
     void Awake()
     {
         main = GameObject.Find("MainObject");
@@ -53,6 +52,7 @@ public class GameHandler : MonoBehaviour {
 
         con_man = main.GetComponent<ConnectionManager>();
         player_handler = main.GetComponent<PlayerHandler>();
+        AS = GetComponents<AudioSource>();
 
         //gets sphere, the one the client controls
         //player = GameObject.Find("Player");
@@ -120,7 +120,11 @@ public class GameHandler : MonoBehaviour {
             player_controller.allowMovement(false);
             //Text waitTimer = wait_timer.transform.GetComponent<Text>();
             wait_timer.text = wait_time.ToString();
-
+            //annouce ready go one second before start
+            if (wait_time == 1 && !AS[0].isPlaying)
+            {
+                AS[0].Play();
+            }
         }
         //game has started, and call this ONCE
         else if(game_started==false)
@@ -135,8 +139,16 @@ public class GameHandler : MonoBehaviour {
         {
             wait_timer.text = "";
             game_timer.text = convertTime(game_time);
-            
-
+            //30 seconds left
+            if (game_time == 30 && !AS[1].isPlaying)
+            {
+                AS[1].Play();
+            }
+            //10 second left
+            if (game_time == 10 && !AS[2].isPlaying)
+            {
+                AS[2].Play();
+            }
             //game has ended
             if (game_time == 0)
                 gameOver();
@@ -352,11 +364,7 @@ public class GameHandler : MonoBehaviour {
         
     }
 
-
-
-
-
-
+    
     string[] splitParameters(string parameter_string)
     {
         return parameter_string.Split('|');
