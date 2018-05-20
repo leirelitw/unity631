@@ -16,7 +16,6 @@ public class playerController : MonoBehaviour
     private float acceleration = 10;
     private float maxSpeed = 10;
     private AudioSource[] AS;
-    private int previousCount = 0;
     private string sceneName;
 
     private Rigidbody rigidBody;

@@ -124,10 +124,7 @@ public class CollisionHandler : MonoBehaviour
     public IEnumerator ResponsePickedup(Response response)
     {
         Debug.Log("ResponsePickedup(): " + response.response);
-
-
-
-
+        
         yield return 0;
     }
 
